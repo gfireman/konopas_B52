@@ -1,6 +1,6 @@
 BIN = ./node_modules/.bin
 
-DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css
+DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css dist/konopas.appcache dist/update_b52sched.sh
 SKIN = $(addprefix dist/, $(wildcard skin/*.png skin/*.svg skin/*.ttf))
 STATIC = $(SKIN) dist/favicon.ico
 
@@ -42,19 +42,25 @@ dist/konopas.min.js: dist/konopas.js | node_modules
 		--source-map $@.map --source-map-include-sources --source-map-url $(notdir $@.map)
 
 dist/dev.html: index.html | dist
-	cp $< $@
+	cp -pf $< $@
 
 dist/index.html: index.html | dist
 	sed 's/"konopas.js"/"konopas.min.js"/' $< > $@
 
 dist/favicon.ico: skin/favicon.ico | dist
-	cp $< $@
+	cp -pf $< $@
+
+dist/konopas.appcache: konopas.appcache | dist
+	cp -pf $< $@
+
+dist/update_b52sched.sh: update_b52sched.sh | dist
+	cp -pf $< $@
 
 dist/skin/konopas.css: skin/*.less | dist/skin node_modules
 	$(BIN)/lessc skin/main.less --clean-css="--s0 --advanced --compatibility=ie8" $@
 
 dist/skin/%: skin/% | dist/skin
-	cp $< $@
+	cp -pf $< $@
 
 
 precache: $(addsuffix .gz, $(DIST) $(wildcard dist/skin/*.ttf))
