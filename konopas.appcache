@@ -2,15 +2,16 @@ CACHE MANIFEST
 # [insert mod-timestamp here]
 
 CACHE:
+data/balticon52.json
 data/program.js
 data/people.js
+data/favicon.ico
 konopas.min.js
-skin/konopas.min.css
+skin/konopas.css
 skin/icons.png
 skin/Roboto300.ttf
 skin/Roboto500.ttf
 skin/Oswald400.ttf
-favicon.ico
 
 NETWORK:
 *

@@ -2,7 +2,8 @@ BIN = ./node_modules/.bin
 
 DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css dist/konopas.appcache dist/update_b52sched.sh
 SKIN = $(addprefix dist/, $(wildcard skin/*.png skin/*.svg skin/*.ttf))
-STATIC = $(SKIN) dist/favicon.ico
+DATA = $(addprefix dist/, $(wildcard data/*.jpg data/*.png data/*.ico data/*.js))
+STATIC = $(SKIN) $(DATA) dist/favicon.ico
 
 MAKEFLAGS += -r
 .SUFFIXES:
@@ -15,7 +16,7 @@ clean: ; rm -rf tmp/ dist/
 
 node_modules: ; npm install && touch $@
 
-tmp dist dist/skin: ; mkdir -p $@
+tmp dist dist/skin dist/data: ; mkdir -p $@
 
 tmp/LC: | tmp ; echo 'en' > $@
 LC: | tmp/LC
@@ -47,8 +48,8 @@ dist/dev.html: index.html | dist
 dist/index.html: index.html | dist
 	sed 's/"konopas.js"/"konopas.min.js"/' $< > $@
 
-dist/favicon.ico: skin/favicon.ico | dist
-	cp -pf $< $@
+dist/favicon.ico: data/favicon.ico | dist
+	cp $< $@
 
 dist/konopas.appcache: konopas.appcache | dist
 	cp -pf $< $@
@@ -62,6 +63,8 @@ dist/skin/konopas.css: skin/*.less | dist/skin node_modules
 dist/skin/%: skin/% | dist/skin
 	cp -pf $< $@
 
+dist/data/%: data/% | dist/data
+	cp -pf $< $@
 
 precache: $(addsuffix .gz, $(DIST) $(wildcard dist/skin/*.ttf))
 %.gz: % ; gzip -c $^ > $@
