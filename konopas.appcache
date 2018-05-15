@@ -3,9 +3,10 @@ CACHE MANIFEST
 
 CACHE:
 data/balticon52.json
+data/VenueMap.jpg
 data/program.js
 data/people.js
-data/favicon.ico
+favicon.ico
 konopas.min.js
 skin/konopas.css
 skin/icons.png
