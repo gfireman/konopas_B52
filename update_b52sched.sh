@@ -10,8 +10,8 @@ timestamp=`date "+%Y%m%d_%H%M"`
 # save current state of schedule
 oldfile=$kondir/data/$jsonfile
 newfile=$kondir/data/$timestamp.$jsonfile
-mkdir -p `dirname $newfile`
-curl $zambiaurl >| $newfile 2>/dev/null
+mkdir -p $kondir/data/archive
+curl -s $zambiaurl >| $newfile 2>/dev/null
 
 # if the schedule has changed,
 if ! cmp -s $newfile $oldfile; then
@@ -19,6 +19,7 @@ if ! cmp -s $newfile $oldfile; then
     # make new schedule active and save a copy
     rsync -a $newfile $oldfile
     gzip $newfile
+    mv $newfile.gz $kondir/data/archive
 
     # update the appcache
     timestamp=`TZ='America/New_York' date -r $oldfile`

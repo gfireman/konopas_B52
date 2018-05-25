@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="konopas.appcache">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="skin/konopas.css">
@@ -26,10 +26,9 @@
     <div id="banner">
       <div id="server_connect"></div>
 
-      <iframe id='manifest_iframe_hack'
-	      style='display: none;'
-	      src='manifest_hack.html'>
-      </iframe>
+      <div style="text-align:center;border:2px solid red">
+	Cached copy:<br>Refresh while online for latest version.
+      </div>
 
       <h1><a href="#info" alt="Balticon 52" title="Balticon 52">
 	  <img id="title-small" src="data/bsfs_icon.png" style="width: 240px;">
@@ -276,7 +275,7 @@
 
 <!------------------------------------------------------------->
 <script src="data/balticon52.json"></script>
-    <script src="konopas.js"></script>
+<script src="konopas.min.js"></script>
 <script>
   var konopas = new KonOpas({
   'id': 'Balticon52',

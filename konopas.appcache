@@ -3,16 +3,20 @@ CACHE MANIFEST
 
 CACHE:
 data/balticon52.json
-data/VenueMap.jpg
-data/program.js
-data/people.js
-favicon.ico
+data/B52_5th.png
+data/B52_6th.png
+data/B52_7th.png
+data/bsfs_icon.png
 konopas.min.js
 skin/konopas.css
 skin/icons.png
 skin/Roboto300.ttf
 skin/Roboto500.ttf
 skin/Oswald400.ttf
+favicon.ico
 
 NETWORK:
 *
+
+FALLBACK:
+index.html index_cached.html

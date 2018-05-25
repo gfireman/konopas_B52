@@ -1,6 +1,6 @@
 BIN = ./node_modules/.bin
 
-DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css dist/konopas.appcache dist/update_b52sched.sh
+DIST = dist/index.html dist/index_cached.html dist/konopas.min.js dist/skin/konopas.css dist/konopas.appcache dist/update_b52sched.sh
 SKIN = $(addprefix dist/, $(wildcard skin/*.png skin/*.svg skin/*.ttf))
 DATA = $(addprefix dist/, $(wildcard data/*.png data/*.jpg data/*.js))
 STATIC = $(SKIN) $(DATA) dist/favicon.ico
@@ -45,11 +45,14 @@ dist/konopas.min.js: dist/konopas.js | node_modules
 dist/dev.html: index.html | dist
 	cp -pf $< $@
 
+dist/index_cached.html: index_cached.html | dist
+	cp -pf $< $@
+
 dist/index.html: index.html | dist
 	sed 's/"konopas.js"/"konopas.min.js"/' $< > $@
 
 dist/favicon.ico: data/favicon.ico | dist
-	cp $< $@
+	cp -pf $< $@
 
 dist/konopas.appcache: konopas.appcache | dist
 	cp -pf $< $@
