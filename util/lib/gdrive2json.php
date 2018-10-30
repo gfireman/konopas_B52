@@ -47,7 +47,7 @@ function gdrive2json($key, $gid = '0', $version = 'ccc') {
 	if ($rc) exit("URL fetch error: $rc");
 
 	if (preg_match('|<html.*<head.*</head>.*<body.*</body>.*</html>|s', $csv_str)) {
-		exit("ERROR: CSV content appears to be an HTML page.\nPlease set document permissions to be  publically accessible via link without any username or password.");
+		exit("ERROR: CSV content appears to be an HTML page.\nPlease set document permissions to be publicly accessible via link without any username or password.");
 	}
 
 	$csv = new parseCSV("$csv_str\n");
