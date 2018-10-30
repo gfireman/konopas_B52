@@ -25,7 +25,7 @@ LC: | tmp/LC
 
 tmp/i18n.js: src/i18n/*.json | tmp node_modules
 	$(eval LCglob := @($(shell echo $(LC) | tr ',' '|')).json)
-	$(BIN)/messageformat --locale $(LC) --include '$(LCglob)' src/i18n/ $@
+	sh $(BIN)/messageformat --locale $(LC) --include '$(LCglob)' src/i18n/ $@
 
 tmp/preface.js: LICENSE | tmp
 	echo '/**' > $@
@@ -38,7 +38,7 @@ dist/konopas.js: tmp/preface.js tmp/i18n.js src/*.js | dist
 	cat $^ > $@
 
 dist/konopas.min.js: dist/konopas.js | node_modules
-	$(BIN)/uglifyjs $< --comments --compress --mangle --output $@ \
+	sh $(BIN)/uglifyjs $< --comments --compress --mangle --output $@ \
 		--source-map $@.map --source-map-include-sources --source-map-url $(notdir $@.map)
 
 dist/dev.html: index.html | dist
@@ -51,7 +51,7 @@ dist/favicon.ico: skin/favicon.ico | dist
 	cp $< $@
 
 dist/skin/konopas.css: skin/*.less | dist/skin node_modules
-	$(BIN)/lessc skin/main.less --clean-css="--s0 --advanced --compatibility=ie8" $@
+	sh $(BIN)/lessc skin/main.less --clean-css="--s0 --advanced --compatibility=ie8" $@
 
 dist/skin/%: skin/% | dist/skin
 	cp $< $@
