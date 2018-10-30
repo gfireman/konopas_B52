@@ -1,3 +1,8 @@
+# 0.9.2 (2018-10-30)
+
+  * New features:
+    - Added support for adding an unlimited number of user-defined tabs using the 'more' hash prefix.
+
 # 0.9.1 (2018-10-29)
 
   * Interface:

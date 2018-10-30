@@ -29,6 +29,7 @@ function KonOpas(set) {
 	this.server = this.use_server && KonOpas.Server && new KonOpas.Server(this.id, this.stars);
 	this.item = new KonOpas.Item();
 	this.info = new KonOpas.Info();
+	this.more = [];
 	window.onhashchange = this.set_view.bind(this);
 	var pl = document.getElementsByClassName('popup-link');
 	for (var i = 0; i < pl.length; ++i) pl[i].addEventListener('click', KonOpas.popup_open);
@@ -39,7 +40,8 @@ KonOpas.prototype.set_program = function(list, opt) { this.program = new KonOpas
 KonOpas.prototype.set_people = function(list) { this.people = new KonOpas.Part(list, this); }
 
 KonOpas.prototype.set_view = function() {
-	var view = window.location.hash.substr(1, 4), tabs = _el('tabs');
+	var hash = window.location.hash.substr(1);
+	var view = hash.substr(0, 4), tabs = _el('tabs');
 	if (!this.program || !this.program.list.length) {
 		view = 'info';
 		tabs.style.display = 'none';
@@ -57,12 +59,23 @@ KonOpas.prototype.set_view = function() {
 			case 'part': this.people.show();  break;
 			case 'star': this.stars.show();   break;
 			case 'info': this.info.show();    break;
+			case 'more': {
+				_el("prog_ls").innerHTML = "";
+				// Dynamically populate 'moreX' tab objects and classes
+				if (this.more.indexOf(hash) === -1) { this.more.push(hash); }
+				break;
+			};
 			default:     this.program.show(); view = 'prog';
 		}
 	}
 	for (var i = 0; i < this.views.length; ++i) {
 		document.body.classList[view == this.views[i] ? 'add' : 'remove'](this.views[i]);
 	}
+
+	for (var i = 0; i < this.more.length; ++i) {
+		_el(this.more[i] + '_view').classList[this.more[i] === hash ? 'add' : 'remove']('active');
+	}
+
 	if (_el('load_disable')) _el('load_disable').style.display = 'none';
 }
 
