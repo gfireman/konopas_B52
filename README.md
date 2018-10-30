@@ -141,6 +141,12 @@ Once set, the same locale will be used until reset as above or by `make clean`.
 [npm]: https://www.npmjs.com/
 [Watchman]: https://github.com/facebook/watchman
 
+### release
+
+To make a release zip file on Windows:
+```
+"c:\Program Files\7-Zip\7z.exe" a konopas-0.9.1.zip CHANGELOG.md LICENSE README.md dist\* util\* util2\* -x!*\node_modules
+```
 
 ## Discussion
 

@@ -1,6 +1,6 @@
 BIN = ./node_modules/.bin
 
-DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css
+DIST = dist/index.html dist/konopas.appcache dist/konopas.min.js dist/skin/konopas.css
 SKIN = $(addprefix dist/, $(wildcard skin/*.png skin/*.svg skin/*.ttf))
 STATIC = $(SKIN) dist/favicon.ico
 
@@ -42,6 +42,9 @@ dist/konopas.min.js: dist/konopas.js | node_modules
 		--source-map $@.map --source-map-include-sources --source-map-url $(notdir $@.map)
 
 dist/dev.html: index.html | dist
+	cp $< $@
+
+dist/konopas.appcache: konopas.appcache | dist
 	cp $< $@
 
 dist/index.html: index.html | dist
