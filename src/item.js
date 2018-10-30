@@ -70,16 +70,18 @@ KonOpas.Item.new = function(it) {
 		}
 		return s;
 	}
-	var frame = _new_elem('div', 'item_frame'),
-	    star  = frame.appendChild(_new_elem('div', 'item_star')),
-	    item  = frame.appendChild(_new_elem('div', 'item')),
-	    title = item.appendChild(_new_elem('div', 'title')),
-	    loc   = item.appendChild(_new_elem('div', 'loc'));
+	var frame  = _new_elem('div', 'item_frame'),
+	    star   = frame.appendChild(_new_elem('div', 'item_star')),
+	    item   = frame.appendChild(_new_elem('div', 'item')),
+	    status = item.appendChild(_new_elem('div', 'title status')),
+	    title  = item.appendChild(_new_elem('div', 'title')),
+	    loc    = item.appendChild(_new_elem('div', 'loc'));
 
 	KonOpas.Item.new = function(it) {
 		star.id = 's' + it.id;
 		item.id = 'p' + it.id;
 		title.textContent = it.title;
+		status.textContent = it.status || '';
 		loc.textContent = _loc_str(it);
 		return frame.cloneNode(true);
 	};
