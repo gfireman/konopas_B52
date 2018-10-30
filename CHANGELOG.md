@@ -1,3 +1,14 @@
+# 0.9.1 (2018-10-29)
+
+  * Interface:
+    - Added support for a 'status' field in the program.json metadata, which will display an event status in the UI.  Use this to draw attention to events that have been moved/rescheduled/canceled.
+  * Code:
+    - Changed visible text 'programme' to 'program'
+    - Non-functional code changes
+  * Util:
+    - Enhanced PHP scripts to be more tolerant of gaps in spreadsheet data.
+    - Added a util2 folder that re-implements the PHP scripts in ES6 javascript (Node.js)
+
 # 0.9.0 (2018-07-12)
 
   * Interface:

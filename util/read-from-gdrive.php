@@ -31,12 +31,12 @@
 
 $data = array(
 	'program' => array(
-		'key' => '0Auqwt8Hmhr0pdFRiR0hWWWRqRXVUSDVUY2RFYmRzZ0E',
+		'key' => '1Vff_nSuxgiuctd2sCZ19CeZMp8OZgQRUkFweYNktJLs',
 		'gid' => '0',
 		'tgt' => '../data/finncon2013/program.js'
 	),
 	'people' => array(
-		'key' => '0Auqwt8Hmhr0pdFRiR0hWWWRqRXVUSDVUY2RFYmRzZ0E',
+		'key' => '1Vff_nSuxgiuctd2sCZ19CeZMp8OZgQRUkFweYNktJLs',
 		'gid' => '1',
 		'tgt' => '../data/finncon2013/people.js'
 	)
@@ -51,7 +51,7 @@ require_once('lib/gdrive2json.php');
 require_once('update-cache-manifest.php');
 
 function gdrive2konopas($name, $set) {
-	$json = gdrive2json($set['key'], $set['gid']);
+	$json = gdrive2json($set['key'], $set['gid'], 'd');
 	if (strlen($json) == 0) exit("JSON length 0! Error!");
 	$js = "var $name = $json;";
 	$dir = dirname($set['tgt']);
