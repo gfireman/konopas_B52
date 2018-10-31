@@ -74,6 +74,7 @@ KonOpas.prototype.set_view = function() {
 
 	for (var i = 0; i < this.more.length; ++i) {
 		_el(this.more[i] + '_view').classList[this.more[i] === hash ? 'add' : 'remove']('active');
+    _el('tab_' + this.more[i]).classList[this.more[i] === hash ? 'add' : 'remove']('active');
 	}
 
 	if (_el('load_disable')) _el('load_disable').style.display = 'none';
