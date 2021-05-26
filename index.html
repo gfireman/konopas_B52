@@ -6,12 +6,9 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
 
-    <!-- Android + favicon -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" sizes="196x196" href="data/favicon.196.png">
-
-    <!-- iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Android --> <meta name="mobile-web-app-capable" content="yes">
+    <!-- iOS	 --> <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- favicon --> <link rel="shortcut icon" sizes="196x196" href="data/favicon.196.png">
 
     <title>Balticon 55 Program Guide</title>
   </head>
@@ -27,13 +24,16 @@
       <div id="server_connect"></div>
 
       <h1><a href="#info" title="Balticon 55">
-	  <img id="title-small" src="data/bsfs_icon.png" alt="BSFS icon" style="width: 240px;">
-	  <img id="title" src="data/bsfs_icon.png" alt="BSFS icon" style="width: 200px; margin: auto;"></a></h1>
+	  <img id="title-small" src="data/bsfs_icon.png" alt="BSFS logo" style="width: 240px;">
+	  <img id="title" src="data/bsfs_icon.png" alt="BSFS logo"
+	       style="width: 200px; margin: auto;"></a></h1>
 
       <ul id="tabs">
 	<li id="tab_star"><a href="#star" data-txt>My Con</a>
-	<li id="tab_prog"><a href="#" data-txt>Program</a><div id="day-sidebar" class="sub-side"></div>
-	<li id="tab_part"><a href="#part" data-txt>Participants</a><div id="part-sidebar" class="sub-side"></div>
+	<li id="tab_prog"><a href="#" data-txt>Program</a>
+	  <div id="day-sidebar" class="sub-side"></div>
+	<li id="tab_part"><a href="#part" data-txt>Participants</a>
+	  <div id="part-sidebar" class="sub-side"></div>
 	<li id="tab_info"><a href="#info" data-txt>Info</a>
       </ul>
 
@@ -44,83 +44,82 @@
     <div id="main">
 
       <div id="star_view" class="view">
-	<b>Note:</b> Selections are stored on your device, and will not sync with others.
+	<b>Note:</b> Selections are stored as browser cookies, and will not sync across apps.
+	<div id="star_data"></div>
       </div>
-      <div id="star_data"></div>
-    </div>
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="prog_view" class="view">
-      <div id="prog_filters" class="filters">
-	<div id="prog_lists"></div>
-	<form name="search" id="search">
-	  <input type="text" id="q" required data-txt="Search" data-txt-attr="placeholder">
-	  <div id="q_ctrl">
-	    <input type="submit" id="q_submit" data-txt="Go" data-txt-attr="value">
-	  </div>
-	  <div id="q_hint" class="hint"></div>
-	  <div id="filter_sum_wrap">
-	    <input type="reset" id="q_clear" data-txt="Clear all" data-txt-attr="value">
-	    <div id="filter_sum"></div>
-	  </div>
-	</form>
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <div id="prog_view" class="view">
+	<div id="prog_filters" class="filters">
+	  <div id="prog_lists"></div>
+	  <form name="search" id="search">
+	    <input type="text" id="q" required data-txt="Search" data-txt-attr="placeholder">
+	    <div id="q_ctrl">
+	      <input type="submit" id="q_submit" data-txt="Go" data-txt-attr="value">
+	    </div>
+	    <div id="q_hint" class="hint"></div>
+	    <div id="filter_sum_wrap">
+	      <input type="reset" id="q_clear" data-txt="Clear all" data-txt-attr="value">
+	      <div id="filter_sum"></div>
+	    </div>
+	  </form>
+	</div>
+	<div id="day-narrow" class="sub-narrow"></div>
+
+	<ul>
+          <li><b>All times are listed in EDT.</b> Please adjust for your local time zone.
+	  <li>Click item titles to view description.
+	  <li>Select the box next to items of interest to save to "My Con".<br>
+	    <b>Note:</b> Selections are stored as browser cookies, and will not sync across apps.
+	</ul>
       </div>
-      <div id="day-narrow" class="sub-narrow"></div>
-      <ul>
-	<li><b>All times are listed in EDT.</b> Please adjust for your local time zone.
-	<li>Click item titles to view description.
-	<li>Select the box next to items of interest to save to "My Con".<br>
-	  <b>Note:</b> Selections are stored on your device, and will not sync with others.
-      </ul>
-    </div>
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="part_view" class="view">
-      <p>Select program participant name for bio and schedule.</p>
-      <div id="part-narrow" class="sub-narrow"></div>
-      <ul id="part_names"></ul>
-      <div id="part_info"></div>
-    </div>
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <div id="part_view" class="view">
+	<h2>Participants</h2>
+	<p>Select program participant name for bio and schedule.</p>
+	<div id="part-narrow" class="sub-narrow"></div>
+	<ul id="part_names"></ul>
+	<div id="part_info"></div>
+      </div>
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <div id="info_view" class="view">
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <div id="info_view" class="view">
 
-      <h2>Welcome to Balticon 55!</h2>
-      <p>The Baltimore Science Fiction Society is holding Balticon 55 as a free virtual convention
-	Memorial Day weekend, May 28-31, 2021.
-	Please consider helping with expenses by donating
-	<a href="https://charity.gofundme.com/o/en/campaign/balticon-55-go-fund-me">here.</a>
+	<h2>Welcome to Balticon 55!</h2>
+	<p>The Baltimore Science Fiction Society is holding Balticon 55 as a free
+	  virtual convention Memorial Day weekend, May 28&nbsp;&mdash;&nbsp;31, 2021.
+	  Please consider helping with expenses by donating
+	  <a href="https://charity.gofundme.com/o/en/campaign/balticon-55-go-fund-me">
+	    <b>here</b>.</a></p>
 
 	<div id="last-updated"><p>
-	    Program and participant data are subject to change. All times are listed in Eastern Daylight Time.
+	    Program and participant data are subject to change.
+	    All times are listed in <b>E</b>astern <b>D</b>aylight <b>T</b>ime.
 	    Last&nbsp;update:&nbsp;<span></span>.</p></div>
 
 	<div id="install-instructions">
-	  <p>This guide is an instance
-	    of <a href="http://konopas.org/">KonOpas</a>, a mobile-friendly
-	    guide for conventions, with all sorts of spiffy features. It
-	    can be used on most browsers and devices, and will work even
-	    when you don’t have an internet connection.</p><br>
-	  <h4 class="collapse">Tap here for instructions to install as a home screen app.</h4>
-	  <dl class="compact-dl">
-	    <dt>Safari:</dt><dd>Tap on <i class="ios_share_icon"></i>
-	      (share), then tap <b>Add to Home Screen</b>.</dd>
-	    <dt>Chrome:</dt><dd>Tap on <i class="android_menu_icon"></i>
-	      (menu), then tap <b>Add to Home Screen</b>.</dd>
-	    <dt>Firefox:</dt><dd>Tap on <i class="android_menu_icon"></i>
-	      (menu), then tap <b>Bookmark</b>
-	      select <b>Options</b>, and <b>Add to Home Screen</b>.</dd>
-	    <dt>IE:</dt><dd>Tap on <i class="ie_menu_icon"></i>
-	      (menu), then tap <b>Pin to Start</b>.</dd>
-	  </dl>
+	  <p>This guide runs on <a href="http://konopas.org/">KonOpas</a>.
+	    <h4 class="collapse">You can install it as a home screen app.</h4>
+	    <dl class="compact-dl">
+	      <dt>Safari:</dt><dd>Tap on <i class="ios_share_icon"></i>
+		(share), then tap <b>Add to Home Screen</b>.</dd>
+	      <dt>Chrome:</dt><dd>Tap on <i class="android_menu_icon"></i>
+		(menu), then tap <b>Add to Home Screen</b>.</dd>
+	      <dt>Firefox:</dt><dd>Tap on <i class="android_menu_icon"></i>
+		(menu), then tap <b>Bookmark</b>,
+		select <b>Options</b>, and <b>Add to Home Screen</b>.</dd>
+	      <dt>IE:</dt><dd>Tap on <i class="ie_menu_icon"></i>
+		(menu), then tap <b>Pin to Start</b>.</dd>
+	    </dl>
 	</div><!-- id="install-instructions" -->
-
 	<script>
 	  if (navigator.standalone) document.getElementById('install-instructions').style.display = 'none';
 	</script>
 
 	<h2>Links</h2>
 	<ul>
+	  <li><a href="https://charity.gofundme.com/o/en/campaign/balticon-55-go-fund-me">Donate!</a>
 	  <li><a href="https://balticon.org/">Balticon 55 website</a></li>
 
 	  <!--
@@ -146,10 +145,11 @@
 
 	<dl class="quick-ref">
 
-	  <dt><b>Artists’ Alley</b>: <em>Open 24 hours a day.</em></dt>
+	  <dt><b>Artists’ Alley:</b> <em>Open 24 hours a day.</em></dt>
 	  <dd>See Discord, Gather Town, Second Life</dd>
 
-	  <dt><b>Con Suite</b>: <em>Zoom link varies by day.</em></dt>
+	  <dt><a href="https://www.balticon.org/wp55/con-suite/"><b>Con Suite</b></a>:
+	    <em>Zoom link varies by day.</em></dt>
 	  <dd><table>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJcqceqoqj8tE9L37tY-C5HEvSqn32gvo8SZ">
 		    Friday</a></td></tr>
@@ -161,105 +161,104 @@
 		    Monday</a></td></tr>
 	  </table></dd>
 
-	  <dt><b>Dealers’ Room</b>: <em>Open 24 hours a day.</em></dt>
-	  <dt><b>Discord</b>: <em>Open 24 hours a day.</em></dt>
+	  <dt><a href="https://www.balticon.org/wp55/dealer-room-attendees/"><b>Dealers’ Room:</b></a>
+	    <em>Open 24 hours a day.</em></dt>
+	  <dt><a href="https://discord.gg/balticon-55"><b>Discord:</b></a>
+	    <em>Open 24 hours a day.</em></dt>
+	  <dt><a href="https://charity.gofundme.com/o/en/campaign/balticon-55-go-fund-me"><b>Donate!</b></a></dt>
 
-	  <dt><b>Gaming</b>: <em>Zoom link varies by day.</em></dt>
+	  <dt><a href="https://www.balticon.org/wp55/gaming/"><b>Gaming:</b></a>
+	    <em>Zoom link and times vary by day.</em></dt>
 	  <dd><table>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEscOmpqTwuHdYtP0nOO73dLmLJqEYDH2CV">
-		    Friday</a></td></tr>
+		    Fri</a>: 4&nbsp;PM&nbsp;&mdash;&nbsp;Midnight</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJUqdOCuqj0iGteIkS2jBqlgEVExVi-wKKdk">
-		    Saturday</a></td></tr>
+		    Sat</a>: Noon&nbsp;&mdash;&nbsp;Midnight</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJMoceqorT8jHNej5A7GjAHcqXXH8Y20VzvI">
-		    Sunday</a></td></tr>
+		    Sun</a>: 10&nbsp;AM&nbsp;&mdash;&nbsp;Midnight</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJwufumqrDwsG9xeDb02-OsyiIYMk0XovZeA">
-		    Monday</a></td></tr>
+		    Mon</a>: 10&nbsp;AM&nbsp;&mdash;&nbsp;4&nbspPM</td></tr>
 	  </table></dd>
 
-	  <dt><a href="https://gather.town/app/QqRxv0I4RQIeIYfT/Balticon"><b>Gather Town</b></a>
+	  <dt><a href="https://gather.town/app/QqRxv0I4RQIeIYfT/Balticon"><b>Gather Town:</b></a>
 	    <em>Open 24 hours a day.</em></dt>
 	  <dd>Password: BookClub</dd>
 
-	  <dt><b>LARP</b>: <em>Zoom link and times vary by day.</em></dt>
+	  <dt><a href="https://www.balticon.org/wp55/larp/"><b>LARP:</b></a>
+	    <em>Zoom link and times vary by day.</em></dt>
 	  <dd><table>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEkd-6vrz8rGNT8Tk5TnMC7yKnpFH8YE8RC">
-		    Friday</a></td><td>2:30 PM &mdash;</td><td>Midnight</td></tr>
+		    Fri</a>: 2:30&nbsp;PM&nbsp;&mdash;&nbsp;Midnight</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJElduCsqzooGNxlA-wxzoxSQKPOurhazzys">
-		    Saturday</a></td><td>11 AM &mdash;</td><td>Midnight</td></tr>
+		    Sat</a>: 11&nbsp;AM&nbsp;&mdash;&nbsp;Midnight</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEufuuvpj4qEt0m68FDjSt7FqeakaRL9sGc">
-		    Sunday</a></td><td>10 AM &mdash;</td><td>Midnight</td></tr>
+		    Sun</a>: 10&nbsp;AM&nbsp;&mdash;&nbsp;Midnight</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJYsf--qrD4uGNwLDcQvFStWUkfCffWANRjA">
-		    Monday</a></td><td>10 AM &mdash;</td><td>4 PM</td></tr>
+		    Mon</a>: 10&nbsp;AM&nbsp;&mdash;&nbsp;4&nbspPM</td></tr>
 	  </table></dd>
 
-	  <dt><b>Music/Filk</b>: <em>Zoom link and times vary by day.</em></dt>
+	  <dt><a href="https://www.balticon.org/wp55/filking/"><b>Music/Filk:</b></a>
+	    <em>Zoom link and times vary by day.</em></dt>
 	  <dd><table>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJctcuipqzwrGddRYtJs8LJvSh0j8ihL1wS3">
-		    Friday</a></td><td>2:30 PM</td><td>until we drop</td></tr>
+		    Fri</a>: 2:30&nbsp;PM&nbsp;&mdash;&nbsp;?</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEsfuygqzIqEtFLkJRCFDquDzk_887sctxv">
-		    Saturday</a></td><td>11:30 AM</td><td>until we drop</td></tr>
+		    Sat</a>: 11:30&nbsp;AM&nbsp;&mdash;&nbsp;?</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJUkcu-qpjwvGtW06-K2KV2C6odGouWWqx0N">
-		    Sunday</a></td><td>11:30 AM</td><td>until we drop</td></tr>
+		    Sun</a>: 11:30&nbsp;AM&nbsp;&mdash;&nbsp;?</td></tr>
 	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJYrduypqT0pGdYONV-UOrJV6oJWC4ENznFo">
-		    Monday</a></td><td>12:30 PM</td><td>until we drop</td></tr>
+		    Mon</a>: 12:30&nbsp;PM&nbsp;&mdash;&nbsp;?</td></tr>
 	  </table></dd>
 
-	  <dt><a href="http://maps.secondlife.com/secondlife/Balticon%20Station/160/166/2376"><b>Second Life</b></a>
-	  <em>Open 24 hours a day.</em></dt>
+	  <dt><a href="https://www.balticon.org/wp55/platforms/"><b>Platforms:</b></a>
+            <em>Click for instructions.</em></dt>
 
-	  <dt><b>Social Media</b>:</dt>
-	  <dd><ul>
-	      <li><a href="https://www.youtube.com/baltimoreSciFi">YouTube</a>
-	      <li><a href="https://www.facebook.com/BalticonConvention">FaceBook page</a>
-	      <li><a href="https://www.facebook.com/groups/balticon">FaceBook group</a>
-	      <li><a href="https://twitter.com/Balticon">Twitter</a>
-	      <li><a href="https://www.instagram.com/balticon.convention/">Instagram</a>
-	  </ul></dd>
+	  <dt><a href="http://maps.secondlife.com/secondlife/Balticon%20Station/160/166/2376"><b>Second Life:</b></a>
+	    <em>Open 24 hours a day.</em></dt>
 
-	  <!--
-	      <dt><b>Item</b>: <em>Zoom link varies by day.</em></dt>
+	  <dt><b>Social Media:</b></dt>
 	  <dd><table>
-	      <tr><td><a href="">Friday</a></td></tr>
-	      <tr><td><a href="">Saturday</a></td></tr>
-	      <tr><td><a href="">Sunday</a></td></tr>
-	      <tr><td><a href="">Monday</a></td></tr>
+	      <tr><td><a href="https://www.youtube.com/baltimoreSciFi">YouTube</a></td></tr>
+	      <tr><td><a href="https://www.facebook.com/BalticonConvention">FaceBook page</a></td></tr>
+	      <tr><td><a href="https://www.facebook.com/groups/balticon">FaceBook group</a></td></tr>
+	      <tr><td><a href="https://twitter.com/Balticon">Twitter</a></td></tr>
+	      <tr><td><a href="https://www.instagram.com/balticon.convention/">Instagram</a></td></tr>
 	  </table></dd>
-	  -->
 
 	</dl><!-- class="quick-ref" -->
+      </div><!-- id="info_view" -->
 
-    </div><!-- id="info_view" -->
+      <div id="prog_ls" class="ls"><br>
+	<div class="ls_loading">Loading program data&hellip;</div>
+      </div>
 
-    <div id="prog_ls" class="ls"><br>
-      <div class="ls_loading">Loading program data&hellip;</div></div>
+      <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-    <script src="data/balticon55.json"></script>
-    <script src="konopas.js"></script>
-    <script>
-      var konopas = new KonOpas({
-	  'id': 'Balticon55',
-	  'default_duration': 0,
-	  'tag_categories': ['track', 'type'],
-	  'time_show_am_pm': true,
-	  'show_all_days_by_default': true,
-	  'use_server': false
-      });
-      konopas.set_program(program, {
-	  'day': {},
-	  'area': {},
-	  'tag': {
-	      'categories': ['track', 'type'],
-	      'labels': {
-		  'track': 'Track',
-		  'type': 'Type'
-	      },
-	  }
-      });
-      konopas.set_people(people);
-      konopas.set_view();
-    </script>
+      <script src="data/balticon55.json"></script>
+      <script src="konopas.js"></script>
+      <script>
+	var konopas = new KonOpas({
+	'id': 'Balticon55',
+	'default_duration': 0,
+	'tag_categories': ['track', 'type'],
+	'time_show_am_pm': true,
+	'show_all_days_by_default': true,
+	'use_server': false
+	});
+	konopas.set_program(program, {
+	'day': {},
+	'area': {},
+	'tag': {
+	'categories': ['track', 'type'],
+	'labels': {
+	'track': 'Track',
+	'type': 'Type'
+	},
+	}
+	});
+	konopas.set_people(people);
+	konopas.set_view();
+      </script>
 
   </body>
 </html>
