@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="konopas.appcache">
+<html lang="en" manifest="konopas.appcache">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="skin/konopas.css">
@@ -13,7 +13,7 @@
     <!-- iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <title>Balticon 52 Program Guide</title>
+    <title>Balticon 55 Program Guide</title>
   </head>
 
   <body>
@@ -22,286 +22,244 @@
     <div id="time"></div>
     <div id="scroll"><a href="#top" id="scroll_link" data-txt>Scroll up</a></div>
 
-    <!------------------------------------------------------------->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div id="banner">
       <div id="server_connect"></div>
 
-      <h1><a href="#info" alt="Balticon 52" title="Balticon 52">
-          <img id="title-small" src="data/bsfs_icon.png" style="width: 240px;">
-          <img id="title" src="data/bsfs_icon.png" style="width: 200px; margin: auto;"></a></h1>
+      <h1><a href="#info" title="Balticon 55">
+	  <img id="title-small" src="data/bsfs_icon.png" alt="BSFS icon" style="width: 240px;">
+	  <img id="title" src="data/bsfs_icon.png" alt="BSFS icon" style="width: 200px; margin: auto;"></a></h1>
 
       <ul id="tabs">
-        <li id="tab_star"><a href="#star" data-txt>My Con</a>
-        <li id="tab_prog"><a href="#" data-txt>Program</a><div id="day-sidebar" class="sub-side"></div>
-        <li id="tab_part"><a href="#part" data-txt>Participants</a><div id="part-sidebar" class="sub-side"></div>
-        <li id="tab_info"><a href="#info" data-txt>Info</a>
+	<li id="tab_star"><a href="#star" data-txt>My Con</a>
+	<li id="tab_prog"><a href="#" data-txt>Program</a><div id="day-sidebar" class="sub-side"></div>
+	<li id="tab_part"><a href="#part" data-txt>Participants</a><div id="part-sidebar" class="sub-side"></div>
+	<li id="tab_info"><a href="#info" data-txt>Info</a>
       </ul>
 
       <div id="refresh"><i class="refresh_icon"></i><span data-txt>Refresh data</span></div>
     </div>
 
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div id="main">
 
-      <!------------------------------------------------------------->
       <div id="star_view" class="view">
-        <b>Note:</b> Selected items are stored locally, and will not automatically sync with other devices.</p>
-<div id="star_data"></div>
-</div>
-
-<!------------------------------------------------------------->
-<div id="prog_view" class="view">
-  <div id="prog_filters" class="filters">
-    <div id="prog_lists"></div>
-    <form name="search" id="search">
-      <input type="text" id="q" required data-txt="Search" data-txt-attr="placeholder">
-      <div id="q_ctrl">
-        <input type="submit" id="q_submit" data-txt="Go" data-txt-attr="value">
+	<b>Note:</b> Selections are stored on your device, and will not sync with others.
       </div>
-      <div id="q_hint" class="hint"></div>
-      <div id="filter_sum_wrap">
-        <input type="reset" id="q_clear" data-txt="Clear all" data-txt-attr="value">
-        <div id="filter_sum"></div>
+      <div id="star_data"></div>
+    </div>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div id="prog_view" class="view">
+      <div id="prog_filters" class="filters">
+	<div id="prog_lists"></div>
+	<form name="search" id="search">
+	  <input type="text" id="q" required data-txt="Search" data-txt-attr="placeholder">
+	  <div id="q_ctrl">
+	    <input type="submit" id="q_submit" data-txt="Go" data-txt-attr="value">
+	  </div>
+	  <div id="q_hint" class="hint"></div>
+	  <div id="filter_sum_wrap">
+	    <input type="reset" id="q_clear" data-txt="Clear all" data-txt-attr="value">
+	    <div id="filter_sum"></div>
+	  </div>
+	</form>
       </div>
-    </form>
-  </div>
-  <div id="day-narrow" class="sub-narrow"></div>
-  <ul>
-    <li>Click item titles to view description.
-    <li>Select the box next to items of interest to save to "My Con".<br>
-      <b>Note:</b> Selected items are stored locally, and will not automatically sync with other devices.</p>
-</ul>
-</div>
-
-<!------------------------------------------------------------->
-<div id="part_view" class="view">
-  <p><b>Note:</b> Select program participant name for bio and schedule.</p>
-  <div id="part-narrow" class="sub-narrow"></div>
-  <ul id="part_names"></ul>
-  <div id="part_info"></div>
-</div>
-
-<!------------------------------------------------------------->
-<div id="info_view" class="view">
-
-  <h2>Welcome to Balticon 52!</h2>
-  <p><div id="last-updated">
-      Program and participant data were last updated <span></span>.</div></p>
-
-  <div id="install-instructions">
-    <p>This guide is an instance
-      of <a href="http://konopas.org/">KonOpas</a>, an
-      open-source project providing conventions with easy-to-use
-      mobile-friendly guides. It should be suitable for use on
-      most browsers and devices, and will work even when you
-      don't have an internet connection. </p><br>
-    <h4 class="collapse"> Mobile devices can install it as a home screen app; tap here.</h4>
-    <dl class="compact-dl">
-      <dt>Safari:<dd>Tap on <i class="ios_share_icon"></i>
-          (share), then tap <b>Add to Home Screen</b>.</dt>
-      <dt>Chrome:<dd>Tap on <i class="android_menu_icon"></i>
-          (menu), then tap <b>Add to Home Screen</b>.</dt>
-      <dt>Firefox:<dd>Tap on <i class="android_menu_icon"></i>
-          (menu), then tap <b>Bookmark</b>
-          and select <b>Options</b>, and <b>Add to Home Screen</b>.</dt>
-      <dt>IE:<dd>Tap on <i class="ie_menu_icon"></i>
-          (menu), then tap <b>Pin to Start</b></dt>
-    </dl>
-  </div><!-- id="install-instructions" -->
-
-  <script>
-    if (navigator.standalone) document.getElementById('install-instructions').style.display = 'none';
-  </script>
-
-  <h2>Links</h2>
-  <ul>
-    <li><a href="https://balticon.org/">Balticon 52 website</a>
-    <li><a href="http://bsfs.org/b52hist.htm">Rocket Mail Daily Updates</a> (PDF)
-      <!--
-          <ul>
-            <li><a href="http://bsfs.org/images/bsfs-b52-rocketmail-friday.pdf">
-                Friday</a>
-            <li><a href="http://bsfs.org/images/bsfs-b52-rocketmail-saturday.pdf">
-                Saturday</a>
-            <li><a href="http://bsfs.org/images/bsfs-b52-rocketmail-sunday.pdf">
-                Sunday</a>
-            <li><a href="http://bsfs.org/images/bsfs-b52-rocketmail-monday.pdf">
-                Monday</a>
-          </ul>
-          -->
-    <li><a href="https://bsfs.org/policy.htm">BSFS &amp; Balticon Policy Statements</a>
-    <li>Baltimore’s Show Your Badge Program (PDF)
+      <div id="day-narrow" class="sub-narrow"></div>
       <ul>
-        <li><a href="https://baltimore.org/sites/default/master/files/pdf/show_your_badge.pdf">
-            listing of discounts</a> for local restaurants, attractions, etc.
+	<li><b>All times are listed in EDT.</b> Please adjust for your local time zone.
+	<li>Click item titles to view description.
+	<li>Select the box next to items of interest to save to "My Con".<br>
+	  <b>Note:</b> Selections are stored on your device, and will not sync with others.
       </ul>
-    <li><a href="http://bsfs.org/">Baltimore Science Fiction Society</a>
-  </ul>
+    </div>
 
-  <style>
-    #map { width: 100% !important; }
-    #map td { text-align: left !important; padding: 6px 32px; }
-    #map a, #map span { font-family: 'Oswald'; font-weight: 400; font-size: 1.2em; cursor: pointer; }
-    #map a:hover, #map span:hover { text-decoration: underline; }
-    #map tr:hover, .quick-ref tr:hover { background: inherit !important; }
-    .quick-ref dt { margin: 6px 0 3px; }
-    .quick-ref table { width: auto !important; border-spacing: 0; margin-bottom: 6px; }
-    .quick-ref td { text-align: left !important; }
-    #info_view .quick-ref td.c { text-align: center !important; }
-    .quick-ref td:nth-child(2) { text-align: right !important; padding: 0 0 0 5px; }
-    .quick-ref td:nth-child(3) { padding-left: 0; }
-  </style>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div id="part_view" class="view">
+      <p>Select program participant name for bio and schedule.</p>
+      <div id="part-narrow" class="sub-narrow"></div>
+      <ul id="part_names"></ul>
+      <div id="part_info"></div>
+    </div>
 
-  <h2>Maps</h2>
-  <p>On mobile: tap to open/close; pinch to zoom; drag to scroll.</p>
-  <dl id="map">
-    <dt><a class="popup-link" href="data/B52_5th.png">Fifth Floor</a>
-      <dd>Main Tent, Con Suite, Dealers Rooms, Art Show, Gaming, Science, Restaurant</dt>
-    <dt><a class="popup-link" href="data/B52_6th.png">Sixth Floor</a>
-      <dd>Medical, Video, Anime, LARP, Filk, Face Painter, Children's Programming</dt>
-    <dt><a class="popup-link" href="data/B52_7th.png">Guest Room Floors</a>
-      <dd>Makers, Costuming, Kaffeeklatches, Workshops, Book Launches
-      <dd>Turn right after exiting elevator lobby to find program rooms above
-        the 5th floor.</dt>
-  </dl>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div id="info_view" class="view">
 
-  <h2>Quick Reference</h2>
+      <h2>Welcome to Balticon 55!</h2>
+      <p>The Baltimore Science Fiction Society is holding Balticon 55 as a free virtual convention
+	Memorial Day weekend, May 28-31, 2021.
+	Please consider helping with expenses by donating
+	<a href="https://charity.gofundme.com/o/en/campaign/balticon-55-go-fund-me">here.</a>
 
-  <dl class="quick-ref">
+	<div id="last-updated"><p>
+	    Program and participant data are subject to change. All times are listed in Eastern Daylight Time.
+	    Last&nbsp;update:&nbsp;<span></span>.</p></div>
 
-    <dt><b>Accessibility</b>: <em>5th Floor Atrium</em></dt>
-    <dt><b>Art Show</b>: <em>5th Floor Maryland A/B</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td>5 PM–</td><td>7 PM; 9 PM–</td><td>10 PM</td></tr>
-        <tr><td>Sat</td><td>10 AM–</td><td>8 PM</td></tr>
-        <tr><td>Sun</td><td>10 AM–</td><td>1 PM; 2 PM–</td><td>5 PM</td></tr>
-        <tr><td>Mon</td><td>10 AM–</td><td>noon </td></tr>
-    </table></dd>
-    <dt><b>Artist Alley &amp; Writers’ Row</b>: <em>5th Floor Atrium</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td> 2 PM–</td><td>7 PM</td></tr>
-        <tr><td>Sat</td><td>10 AM–</td><td>7 PM</td></tr>
-        <tr><td>Sun</td><td>10 AM–</td><td>7 PM</td></tr>
-        <tr><td>Mon</td><td>10 AM–</td><td>2 PM</td></tr>
-      </table>Note: Hours may vary for
-      participation in panels, workshops, or other events.</dd>
-    <dt><b>Con Ops</b>: <em>5th Floor, Fells Point (past elevators)</em>
-      <dd>Friday 2 PM through Monday 5 PM</dt>
-    <dt><b>Con Suite</b>: <em>5th Floor Baltimore A</em>:
-      <dd>Friday 4 PM through Monday 2 PM</dt>
-    <dt><b>Dealers’ Rooms</b>: <em>5th Floor Baltimore B &amp; Maryland E/F</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td> 2 PM–</td><td>7 PM</td></tr>
-        <tr><td>Sat</td><td>10 AM–</td><td>7 PM</td></tr>
-        <tr><td>Sun</td><td>10 AM–</td><td>7 PM</td></tr>
-        <tr><td>Mon</td><td>10 AM–</td><td>2 PM</td></tr>
-    </table></dd>
-    <dt><b>Hal Haag Memorial Game Room</b>: <em>5th Floor, Federal Hill</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td> 4 PM–</td><td>2 AM</td></tr>
-        <tr><td>Sat</td><td>10 AM–</td><td>2 AM</td></tr>
-        <tr><td>Sun</td><td>10 AM–</td><td>2 AM</td></tr>
-        <tr><td>Mon</td><td>10 AM–</td><td>3 PM</td></tr>
-    </table></dd>
-    <dt><b>Hall Costume Contest</b>: <em>5th Floor Atrium, Saturday only</em></dt>
-    <dd><table>
-        <tr><td>Photos:</td><td>12 PM–</td><td> 4 PM</td></tr>
-        <tr><td>Voting:</td><td> 4 PM–</td><td>8 PM</td></tr>
-    </table></dd>
-    <dt><b>Hotel</b>:
-      <dd>Renaissance Baltimore Harborplace Hotel
-        <br>202 East Pratt Street
-        <br>Baltimore, Maryland 21202
-        <br>410-547-1200</dd>
-    <dt><b>Info Desk</b>: <em>5th Floor Atrium</em></dt>
-    <dt><b>LARP Registration</b>: <em>5th Floor Atrium</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td>5:00 PM–</td><td> 9:00 PM</td></tr>
-        <tr><td>Sat</td><td>9:00 AM–</td><td>10:45 AM</td></tr>
-    </table></dd>
-    <dt><b>Masquerade</b>: </dt>
-    <dd><table>
-        <tr><td>Registration (5th Floor Atrium): Fri  4 PM–7 PM; Sat 10 AM–3 PM</td></tr>
-        <tr><td>Green Room (Homeland) opens Saturday 6 pm–end of Masquerade</td></tr>
-        <tr><td>Fan Photography (Guilford) opens 7pm</td></tr>
-        <tr><td>Workmanship Judging (Watertable) opens 6:30pm</td></tr>
-        <tr><td>Return of judged materials (Ballroom C/D) Sunday 10am (@Show and Tell)</td></tr>
-    </table></dd>
-    <dt><b>Medical</b>: <em>6th Floor, Room 6017</em></dt>
-    <dt><b>Open Filk</b>: <em>6th Floor, Kent</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td>11 PM–</td><td>2 AM</td></tr>
-        <tr><td>Sat</td><td>10 PM–</td><td>2 AM</td></tr>
-        <tr><td>Sun</td><td>10 PM–</td><td>2 AM</td></tr>
-        <tr><td>Mon</td><td> 3 PM–</td><td>5 PM</td></tr>
-    </table></dd>
-    <dt><b>Registration</b>: <em>5th Floor Atrium</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td> 1:00 PM–</td><td>10:00 PM</td></tr>
-        <tr><td>Sat</td><td> 8:45 AM–</td><td> 9:00 PM</td></tr>
-        <tr><td>Sun</td><td> 8:45 AM–</td><td> 7:00 PM</td></tr>
-        <tr><td>Mon</td><td>10:00 AM–</td><td> 2:00 PM</td></tr>
-    </table></dd>
-    <dt><b>Sales Table</b>: <em>5th Floor, outside Federal Hill</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td> 2:00 PM–</td><td>7:00 PM</td></tr>
-        <tr><td>Sat</td><td>10:30 AM–</td><td>7:30 PM</td></tr>
-        <tr><td>Sun</td><td>10:30 AM–</td><td>7:30 PM</td></tr>
-        <tr><td>Mon</td><td>10:30 AM–</td><td>3:00 PM</td></tr>
-    </table></dd>
-    <dt><b>Volunteer Desk</b>: <em>5th Floor Atrium</em></dt>
-  </dl>
+	<div id="install-instructions">
+	  <p>This guide is an instance
+	    of <a href="http://konopas.org/">KonOpas</a>, a mobile-friendly
+	    guide for conventions, with all sorts of spiffy features. It
+	    can be used on most browsers and devices, and will work even
+	    when you don’t have an internet connection.</p><br>
+	  <h4 class="collapse">Tap here for instructions to install as a home screen app.</h4>
+	  <dl class="compact-dl">
+	    <dt>Safari:</dt><dd>Tap on <i class="ios_share_icon"></i>
+	      (share), then tap <b>Add to Home Screen</b>.</dd>
+	    <dt>Chrome:</dt><dd>Tap on <i class="android_menu_icon"></i>
+	      (menu), then tap <b>Add to Home Screen</b>.</dd>
+	    <dt>Firefox:</dt><dd>Tap on <i class="android_menu_icon"></i>
+	      (menu), then tap <b>Bookmark</b>
+	      select <b>Options</b>, and <b>Add to Home Screen</b>.</dd>
+	    <dt>IE:</dt><dd>Tap on <i class="ie_menu_icon"></i>
+	      (menu), then tap <b>Pin to Start</b>.</dd>
+	  </dl>
+	</div><!-- id="install-instructions" -->
 
-  <h3>Invited Participants Only:</h3>
-  <dl class="quick-ref">
-    <dt><b>Program Ops</b>: <em>5th Floor, Fells Point (past elevators)</em>
-      <br>Please check in when you arrive.</dt>
-    <dd><table>
-        <tr><td>Fri</td><td>4 PM–</td><td>8 PM</td></tr>
-        <tr><td>Sat</td><td>9 AM–</td><td>5 PM</td></tr>
-        <tr><td>Sun</td><td>9 AM–</td><td>Noon</td></tr>
-        <tr><td>Mon</td><td colspan="2">Contact Con Ops</td></tr>
-    </table></dd>
-    <dt><b>Green Room</b>: <em>12th Floor, Presidential Suite</em></dt>
-    <dd><table>
-        <tr><td>Fri</td><td>1 PM–</td><td>9 PM</td></tr>
-        <tr><td>Sat</td><td>9 AM–</td><td>7 PM</td></tr>
-        <tr><td>Sun</td><td>9 AM–</td><td>4 PM</td></tr>
-        <tr><td>Mon</td><td>9 AM–</td><td>4 PM</td></tr>
-    </table></dd>
-  </dl>
+	<script>
+	  if (navigator.standalone) document.getElementById('install-instructions').style.display = 'none';
+	</script>
 
-</div><!-- id="info_view" -->
+	<h2>Links</h2>
+	<ul>
+	  <li><a href="https://balticon.org/">Balticon 55 website</a></li>
 
-<div id="prog_ls" class="ls"><br><div class="ls_loading">Loading program data&hellip;</div></div>
+	  <!--
+	      <li><a href="http://bsfs.org/b55hist.htm">Rocket Mail Daily Updates</a> (PDF)
+		<ul>
+		  <li><a href="http://bsfs.org/images/bsfs-b55-rocketmail-friday.pdf">
+		      Friday</a></li>
+		  <li><a href="http://bsfs.org/images/bsfs-b55-rocketmail-saturday.pdf">
+		      Saturday</a></li>
+		  <li><a href="http://bsfs.org/images/bsfs-b55-rocketmail-sunday.pdf">
+		      Sunday</a></li>
+		  <li><a href="http://bsfs.org/images/bsfs-b55-rocketmail-monday.pdf">
+		      Monday</a></li>
+	      </ul></li>
+	      -->
 
-</div><!-- /main -->
+	  <li><a href="http://bsfs.org/">Baltimore Science Fiction Society</a></li>
+	  <li><a href="https://bsfs.org/policy.htm">BSFS &amp; Balticon Policy Statements</a></li>
 
-<!------------------------------------------------------------->
-<script src="data/balticon52.json"></script>
-<script src="konopas.js"></script>
-<script>
-  var konopas = new KonOpas({
-  'id': 'Balticon52',
-  'default_duration': 0,
-  'tag_categories': ['track', 'type'],
-  'time_show_am_pm': true,
-  'show_all_days_by_default': true,
-  'use_server': false
-  });
-  konopas.set_program(program, {
-  'day': {},
-  'area': {},
-  'tag': {
-  'categories': ['track', 'type'],
-  'labels': {
-  'track': 'Track',
-  'type': 'Type'
-  },
-  }
-  });
-  konopas.set_people(people);
-  konopas.set_view();
-</script>
+	</ul>
 
-</body>
+	<h2>Quick Reference</h2>
+
+	<dl class="quick-ref">
+
+	  <dt><b>Artists’ Alley</b>: <em>Open 24 hours a day.</em></dt>
+	  <dd>See Discord, Gather Town, Second Life</dd>
+
+	  <dt><b>Con Suite</b>: <em>Zoom link varies by day.</em></dt>
+	  <dd><table>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJcqceqoqj8tE9L37tY-C5HEvSqn32gvo8SZ">
+		    Friday</a></td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEoce-srjsjH9SA9CD47hdX54Hz_KuOM6up">
+		    Saturday</a></td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJwkduCrqzkrHt295a7mEuaKTMnCZ9G6Ny-r">
+		    Sunday</a></td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJYrcu6pqz8rGdbNHql-M7s3LUUw4lPz_zdX">
+		    Monday</a></td></tr>
+	  </table></dd>
+
+	  <dt><b>Dealers’ Room</b>: <em>Open 24 hours a day.</em></dt>
+	  <dt><b>Discord</b>: <em>Open 24 hours a day.</em></dt>
+
+	  <dt><b>Gaming</b>: <em>Zoom link varies by day.</em></dt>
+	  <dd><table>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEscOmpqTwuHdYtP0nOO73dLmLJqEYDH2CV">
+		    Friday</a></td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJUqdOCuqj0iGteIkS2jBqlgEVExVi-wKKdk">
+		    Saturday</a></td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJMoceqorT8jHNej5A7GjAHcqXXH8Y20VzvI">
+		    Sunday</a></td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJwufumqrDwsG9xeDb02-OsyiIYMk0XovZeA">
+		    Monday</a></td></tr>
+	  </table></dd>
+
+	  <dt><a href="https://gather.town/app/QqRxv0I4RQIeIYfT/Balticon"><b>Gather Town</b></a>
+	    <em>Open 24 hours a day.</em></dt>
+	  <dd>Password: BookClub</dd>
+
+	  <dt><b>LARP</b>: <em>Zoom link and times vary by day.</em></dt>
+	  <dd><table>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEkd-6vrz8rGNT8Tk5TnMC7yKnpFH8YE8RC">
+		    Friday</a></td><td>2:30 PM &mdash;</td><td>Midnight</td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJElduCsqzooGNxlA-wxzoxSQKPOurhazzys">
+		    Saturday</a></td><td>11 AM &mdash;</td><td>Midnight</td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEufuuvpj4qEt0m68FDjSt7FqeakaRL9sGc">
+		    Sunday</a></td><td>10 AM &mdash;</td><td>Midnight</td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJYsf--qrD4uGNwLDcQvFStWUkfCffWANRjA">
+		    Monday</a></td><td>10 AM &mdash;</td><td>4 PM</td></tr>
+	  </table></dd>
+
+	  <dt><b>Music/Filk</b>: <em>Zoom link and times vary by day.</em></dt>
+	  <dd><table>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJctcuipqzwrGddRYtJs8LJvSh0j8ihL1wS3">
+		    Friday</a></td><td>2:30 PM</td><td>until we drop</td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJEsfuygqzIqEtFLkJRCFDquDzk_887sctxv">
+		    Saturday</a></td><td>11:30 AM</td><td>until we drop</td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJUkcu-qpjwvGtW06-K2KV2C6odGouWWqx0N">
+		    Sunday</a></td><td>11:30 AM</td><td>until we drop</td></tr>
+	      <tr><td><a href="https://balticon-org.zoom.us/meeting/register/tJYrduypqT0pGdYONV-UOrJV6oJWC4ENznFo">
+		    Monday</a></td><td>12:30 PM</td><td>until we drop</td></tr>
+	  </table></dd>
+
+	  <dt><a href="http://maps.secondlife.com/secondlife/Balticon%20Station/160/166/2376"><b>Second Life</b></a>
+	  <em>Open 24 hours a day.</em></dt>
+
+	  <dt><b>Social Media</b>:</dt>
+	  <dd><ul>
+	      <li><a href="https://www.youtube.com/baltimoreSciFi">YouTube</a>
+	      <li><a href="https://www.facebook.com/BalticonConvention">FaceBook page</a>
+	      <li><a href="https://www.facebook.com/groups/balticon">FaceBook group</a>
+	      <li><a href="https://twitter.com/Balticon">Twitter</a>
+	      <li><a href="https://www.instagram.com/balticon.convention/">Instagram</a>
+	  </ul></dd>
+
+	  <!--
+	      <dt><b>Item</b>: <em>Zoom link varies by day.</em></dt>
+	  <dd><table>
+	      <tr><td><a href="">Friday</a></td></tr>
+	      <tr><td><a href="">Saturday</a></td></tr>
+	      <tr><td><a href="">Sunday</a></td></tr>
+	      <tr><td><a href="">Monday</a></td></tr>
+	  </table></dd>
+	  -->
+
+	</dl><!-- class="quick-ref" -->
+
+    </div><!-- id="info_view" -->
+
+    <div id="prog_ls" class="ls"><br>
+      <div class="ls_loading">Loading program data&hellip;</div></div>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <script src="data/balticon55.json"></script>
+    <script src="konopas.js"></script>
+    <script>
+      var konopas = new KonOpas({
+	  'id': 'Balticon55',
+	  'default_duration': 0,
+	  'tag_categories': ['track', 'type'],
+	  'time_show_am_pm': true,
+	  'show_all_days_by_default': true,
+	  'use_server': false
+      });
+      konopas.set_program(program, {
+	  'day': {},
+	  'area': {},
+	  'tag': {
+	      'categories': ['track', 'type'],
+	      'labels': {
+		  'track': 'Track',
+		  'type': 'Type'
+	      },
+	  }
+      });
+      konopas.set_people(people);
+      konopas.set_view();
+    </script>
+
+  </body>
 </html>

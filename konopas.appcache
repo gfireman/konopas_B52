@@ -2,10 +2,7 @@ CACHE MANIFEST
 # [insert mod-timestamp here]
 
 CACHE:
-data/balticon52.json
-data/B52_5th.png
-data/B52_6th.png
-data/B52_7th.png
+data/balticon55.json
 data/bsfs_icon.png
 konopas.min.js
 skin/icons.png
