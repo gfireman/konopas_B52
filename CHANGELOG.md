@@ -1,3 +1,12 @@
+# 0.9.4 (2021-10-03)
+  * Interface:
+    - Replaced dependency on deprecated Browser AppCache with interval timer to check for data updates
+
+# 0.9.3 (2019-11-16)
+
+  * New features:
+    - Added ability to query filter on YYYY-MM-DD
+
 # 0.9.2 (2018-10-30)
 
   * New features:

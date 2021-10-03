@@ -1,14 +1,14 @@
 KonOpas.Info = function() {
 	this.lu = _el('last-updated');
 	this.lu_time = 0;
-	var self = this, cache_manifest = document.body.parentNode.getAttribute('manifest');
-	if (this.lu && cache_manifest && /^http[s]?:/.test(location.protocol)) {
+	var self = this, last_updated = document.body.parentNode.getAttribute('data-last-updated');
+	if (this.lu && last_updated && /^http[s]?:/.test(location.protocol)) {
 		var x = new XMLHttpRequest();
 		x.onload = function() {
 			self.lu_time = new Date(this.getResponseHeader("Last-Modified"));
 			self.show_updated();
 		};
-		x.open('GET', cache_manifest, true);
+		x.open('GET', last_updated, true);
 		x.send();
 	}
 	var cl = _el('info_view').getElementsByClassName('collapse');

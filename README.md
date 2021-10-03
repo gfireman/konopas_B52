@@ -83,17 +83,12 @@ need to edit the `skin/*.less` files and recompile them into CSS. For
 internationalization and other needs, we have a few other [utilities][KO-util]
 available.
 
-The HTML5 [cache manifest] is by default not enabled, as it makes testing and
-development a bit of a hassle. To enable, you should update the contents of
-`konopas.appcache` to match your deployment and add a reference to it in the
-`<html>` tag. Do check that your server is properly serving it with the
-`text/cache-manifest` MIME type, and that the manifest doesn't include itself
-(debugging a bad manifest can be tricky).
-
-[KO-cfg]: http://konopas.org/config
-[KO-util]: http://konopas.org/util/
-[cache manifest]: http://en.wikipedia.org/wiki/Cache_manifest_in_HTML5
-
+Support for the HTML5 [cache manifest] is deprecated, and use of it has been removed from KonOpas.
+A Javascript interval timer is used to fetch the last-updated attribute of a single file (still
+named `konopas.appcache`), and that timestamp is used to determine if the app should be reloaded.
+This functionality is enabled by uncommenting the html tag attribute `data-last-updated`.
+To test changes to the refresh logic locally, consider installing a Node.js webserver via
+ `npm install http-server -g` and then simply running `http-server` in the same directory as `index.html`.
 
 ## Compilation & Dependencies
 
