@@ -252,8 +252,8 @@ KonOpas.Item.show_list = function(ls, opt) {
 		if (d_n) d_set(d_n, 'short');
 		konopas.program.show_filter_sum(ls, opt);
 	}
-
-	konopas.item.scroll.i = 0;
+	if (konopas.item.hasOwnProperty(scroll))
+		konopas.item.scroll.i = 0;
 	window.onscroll && window.onscroll();
 }
 
