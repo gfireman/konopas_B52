@@ -2,7 +2,7 @@ KonOpas.Item = function() {
 	_el('prog_ls').onclick = KonOpas.Item.list_click;
 	if (_el('scroll_link')) {
 		_el('scroll_link').onclick = function() { _el('top').scrollIntoView(); return false; };
-		if (window.navigator && navigator.userAgent.match(/Android [12]/)) {
+		if (window.navigator && navigator.userAgent.match(/Android [12]\./)) {
 			_el('time').style.display = 'none';
 			_el('scroll').style.display = 'none';
 		} else {
@@ -252,8 +252,8 @@ KonOpas.Item.show_list = function(ls, opt) {
 		if (d_n) d_set(d_n, 'short');
 		konopas.program.show_filter_sum(ls, opt);
 	}
-	if (konopas.item.hasOwnProperty(scroll))
-		konopas.item.scroll.i = 0;
+	//if (konopas.item.hasOwnProperty(scroll))
+	konopas.item.scroll.i = 0;
 	window.onscroll && window.onscroll();
 }
 
