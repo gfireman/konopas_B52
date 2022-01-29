@@ -1,3 +1,7 @@
+# 0.9.5 (2022-01-29)
+  * Interface:
+    - Fixed broken tab navigation and page loading on Android 10+
+
 # 0.9.4 (2021-10-03)
   * Interface:
     - Replaced dependency on deprecated Browser AppCache with interval timer to check for data updates
