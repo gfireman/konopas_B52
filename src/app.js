@@ -69,7 +69,7 @@ KonOpas.prototype.set_view = function() {
 KonOpas.prototype.refresh_cache = function() {
 	var t_interval = this.cache_refresh_interval_mins * 60000,
 	    cache = window.applicationCache;
-	if (!t_interval || (t_interval < 0)) return;
+	if (!t_interval || (t_interval < 0) || !cache) return;
 	cache.addEventListener('updateready', function() {
 		if (cache.status == cache.UPDATEREADY) {
 			_el('refresh').classList.add('enabled');
