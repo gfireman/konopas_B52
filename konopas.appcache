@@ -2,8 +2,8 @@ CACHE MANIFEST
 # [insert mod-timestamp here]
 
 CACHE:
-data/balticon55.json
-data/bsfs_icon.png
+https://zambia.balticon.org/konOpasData.jsonp
+data/*
 konopas.min.js
 skin/icons.png
 skin/konopas.css
