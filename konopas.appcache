@@ -4,13 +4,8 @@ CACHE MANIFEST
 CACHE:
 https://zambia.balticon.org/konOpasData.jsonp
 data/*
+skin/*
 konopas.min.js
-skin/icons.png
-skin/konopas.css
-skin/Oswald400.ttf
-skin/Roboto300.ttf
-skin/Roboto500.ttf
-favicon.ico
 
 NETWORK:
 *

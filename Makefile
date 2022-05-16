@@ -3,7 +3,7 @@ BIN = ./node_modules/.bin
 DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css dist/konopas.appcache
 SKIN = $(addprefix dist/, $(wildcard skin/*.png skin/*.svg skin/*.ttf))
 DATA = $(addprefix dist/, $(wildcard data/*.png data/*.jpg data/*.js))
-STATIC = $(SKIN) $(DATA) dist/favicon.ico
+STATIC = $(SKIN) $(DATA)
 
 MAKEFLAGS += -r
 .SUFFIXES:
@@ -47,9 +47,6 @@ dist/dev.html: index.html | dist
 
 dist/index.html: index.html | dist
 	sed 's/"konopas.js"/"konopas.min.js"/' $< > $@
-
-dist/favicon.ico: data/favicon.ico | dist
-	cp -pf $< $@
 
 dist/konopas.appcache: konopas.appcache | dist
 	cp -pf $< $@
