@@ -1,339 +1,304 @@
 <!DOCTYPE html>
 <html manifest="konopas.appcache" lang="en">
 
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" href="skin/konopas.css">
-  <meta name="HandheldFriendly" content="true">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="skin/konopas.css">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
 
-  <!-- Android + favicon -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="shortcut icon" sizes="196x196" href="data/cropped-balticon_favicon_dark.png">
+    <!-- Android + favicon -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="data/cropped-balticon_favicon_dark.png">
 
-  <!-- iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <title>Balticon 56 Program Guide</title>
-</head>
+    <title>Balticon 56 Program Guide</title>
+  </head>
 
-<body>
-  <div id="top"></div>
-  <div id="load_disable"></div>
+  <body>
+    <div id="top"></div>
+    <div id="load_disable"></div>
+    <div id="time"></div>
+    <div id="scroll"><a href="#top" id="scroll_link" data-txt>Scroll up</a></div>
 
-  <div id="time"></div>
-  <div id="scroll"><a href="#top" id="scroll_link" data-txt>Scroll up</a></div>
+    <div id="banner">
+      <div id="server_connect"></div>
 
-  <div id="banner">
-    <div id="server_connect"></div>
+      <h1><a href="#info" alt="Balticon 56" title="Balticon 56">
+	  <img id="title-small"
+	       src="data/cropped-balticon_favicon_dark.png"
+	       alt="Balticon logo" style="width: 240px;">
+	  <img id="title"
+	       src="data/cropped-balticon_favicon_dark.png"
+	       alt="Balticon logo" style="width: 200px; margin: auto;"></a></h1>
 
-    <h1><a href="#info" alt="Balticon 56" title="Balticon 56">
-        <img id="title-small" src="data/cropped-balticon_favicon_dark.png" alt="Balticon logo" style="width: 240px;">
-        <img id="title" src="data/cropped-balticon_favicon_dark.png" alt="BSFS logo"
-          style="width: 200px; margin: auto;"></a></h1>
-
-    <ul id="tabs">
-      <li id="tab_info"><a href="#info" data-txt>Info</a> </li>
-      <li id="tab_prog"><a href="#" data-txt>Program</a>
-        <div id="day-sidebar" class="sub-side"></div>
-      </li>
-      <li id="tab_part"><a href="#part" data-txt>People</a>
-        <div id="part-sidebar" class="sub-side"></div>
-      </li>
-      <li id="tab_star"><a href="#star" data-txt>My Con</a> </li>
-    </ul>
-
-    <div id="refresh"><i class="refresh_icon"></i><span data-txt>Refresh data</span></div>
-  </div>
-
-  <div id="main">
-
-    <div id="star_view" class="view">
-      <b>Note:</b> Selections are stored as browser cookies, and will not sync across devices.
-      <div id="star_data"></div>
-    </div>
-
-    <div id="prog_view" class="view">
-      <div id="prog_filters" class="filters">
-        <div id="prog_lists"></div>
-        <form name="search" id="search">
-          <input type="text" id="q" required data-txt="Search" data-txt-attr="placeholder">
-          <div id="q_ctrl">
-            <input type="submit" id="q_submit" data-txt="Go" data-txt-attr="value">
-          </div>
-          <div id="q_hint" class="hint"></div>
-          <div id="filter_sum_wrap">
-            <input type="reset" id="q_clear" data-txt="Clear all" data-txt-attr="value">
-            <div id="filter_sum"></div>
-          </div>
-        </form>
-      </div>
-      <div id="day-narrow" class="sub-narrow"></div>
-
-      <ul>
-        <li><b>All times are listed in EDT.</b> Please adjust for your local time zone. </li>
-        <li>Click item titles to view description. </li>
-        <li>Select the box next to items of interest to save to "My Con".<br>
-          <b>Note:</b> Selections are stored as browser cookies, and will not sync across devices.
-        </li>
-      </ul>
-    </div>
-
-    <div id="part_view" class="view">
-      <h2>People</h2>
-      <p>Select program participant name for bio and schedule.</p>
-      <div id="part-narrow" class="sub-narrow"></div>
-      <ul id="part_names"></ul>
-      <div id="part_info"></div>
-    </div>
-
-    <div id="info_view" class="view">
-
-      <h2>Welcome to Balticon 56!</h2>
-      <p>The Baltimore Science Fiction Society is holding Balticon 56
-        as a hybrid in-person/virtual convention Memorial Day weekend,
-        May 27&nbsp;—&nbsp;30, 2022.</p>
-
-      <p> </p>
-      <div id="last-updated">
-        Program and participant data are subject to change.<br>
-        All times are listed in <b>E</b>astern <b>D</b>aylight <b>T</b>ime.<br>
-        Last&nbsp;update:&nbsp;<span></span>.
-      </div>
-      <p> </p>
-      <div id="install-instructions">
-        <p>This guide will work in your browser even when you don't have an internet connection.</p>
-        <h4 class="collapse">You can also install it as a home screen app</h4>
-        <dl class="compact-dl">
-          <dt>Safari on iPhone/iPad
-          <dd>Tap on <i class="ios_share_icon"></i> (share), then tap <b>Add to Home Screen</b>.
-          <dt>Chrome on Android
-          <dd>Tap on <i class="android_menu_icon"></i> (menu), then tap <b>Add to Home Screen</b>.
-          <dt>Firefox on Android
-          <dd>Tap on <i class="android_menu_icon"></i> (menu), then tap <b>Bookmark</b> and select
-            <b>Options</b>, and <b>Add to Home Screen</b>.
-          <dt>IE on Windows Phone
-          <dd>Tap on <i class="ie_menu_icon"></i> (menu), then tap <b>Pin to Start</b>
-        </dl>
-      </div><!-- id="install-instructions" -->
-      <script>
-        if (navigator.standalone) document.getElementById('install-instructions').style.display = 'none';
-      </script>
-
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://balticon.org/">Balticon 56 website</a></li>
-        <li><a href="http://bsfs.org/b56hist.htm">Rocket Mail Daily Updates</a> (PDF)
-          <!--
-                  <ul>
-                    <li><a href="http://bsfs.org/images/b56-rocketmail-friday.pdf">
-                        Friday</a></li>
-                    <li><a href="http://bsfs.org/images/b56-rocketmail-saturday.pdf">
-                        Saturday</a></li>
-                    <li><a href="http://bsfs.org/images/b56-rocketmail-sunday.pdf">
-                        Sunday</a></li>
-                    <li><a href="http://bsfs.org/images/b56-rocketmail-monday.pdf">
-                        Monday</a></li>
-                  </ul>
-          -->
-        </li>
-
-        <li><a href="http://bsfs.org/">Baltimore Science Fiction Society</a></li>
-        <li><a href="https://bsfs.org/policy.htm">BSFS &amp; Balticon Policy Statements</a></li>
+      <ul id="tabs">
+	<li id="tab_info"><a href="#info" data-txt>Info</a></li>
+	<li id="tab_prog"><a href="#" data-txt>Program</a>
+	  <div id="day-sidebar" class="sub-side"></div>
+	</li>
+	<li id="tab_part"><a href="#part" data-txt>People</a>
+	  <div id="part-sidebar" class="sub-side"></div>
+	</li>
+	<li id="tab_star"><a href="#star" data-txt>My Con</a></li>
       </ul>
 
-      <style>
-        #map {
-          width: 100% !important;
-        }
-
-        #map td {
-          text-align: left !important;
-          padding: 6px 32px;
-        }
-
-        #map a,
-        #map span {
-          font-family: 'Oswald';
-          font-weight: 400;
-          font-size: 1.2em;
-          cursor: pointer;
-        }
-
-        #map a:hover,
-        #map span:hover {
-          text-decoration: underline;
-        }
-
-        #map tr:hover,
-        .quick-ref tr:hover {
-          background: inherit !important;
-        }
-
-        .quick-ref dt {
-          margin: 6px 0 3px;
-        }
-
-        .quick-ref table {
-          width: auto !important;
-          border-spacing: 0;
-          margin-bottom: 6px;
-        }
-
-        .quick-ref td {
-          text-align: left !important;
-        }
-
-        #info_view .quick-ref td.c {
-          text-align: center !important;
-        }
-
-        .quick-ref td:nth-child(2) {
-          text-align: right !important;
-          padding: 0 0 0 5px;
-        }
-
-        .quick-ref td:nth-child(3) {
-          padding-left: 0;
-        }
-      </style>
-
-      <h2>Maps</h2>
-      <p>On mobile: tap to open/close; pinch to zoom; drag to scroll.</p>
-      <dl id="map">
-        <dt><a class="popup-link" href="data/B56_5th.png">Fifth Floor</a></dt>
-        <dd>Dealers Rooms, Main Tent, Art Show, Con Ops, Fan Tables, Gaming,
-          Restaurant, Autographs, Science, Artist Alley, Con Suite, Crafters Area</dd>
-        <dt><a class="popup-link" href="data/B56_6th.png">Sixth Floor</a></dt>
-        <dd>Quiet Lounge, Medical, Video, Music, Readings</dd>
-        <dt><a class="popup-link" href="data/B56_7th.png">Guest Room Floors</a></dt>
-        <dd>Children's, Makers, Costuming, Workshops</dd>
-        <dd>Turn right after exiting elevator lobby to find program rooms above
-          the 5th floor.</dd>
-      </dl>
-
-      <h2>Quick Reference</h2>
-
-      <dl class="quick-ref">
-
-        <dt><b>Accessibility</b>: <em>5th Floor Atrium</em></dt>
-        <dt><b>Art Show</b>: <em>5th Floor Maryland A/B</em></dt>
-        <dt><b>Artist Alley</b>: <em>5th Floor Atrium</em></dt>
-        <dt><b>Con Ops</b>: <em>5th Floor, Fells Point (past elevators)</em>
-        <dt><b>Con Suite</b>: <em>5th Floor Baltimore A</em></dt>
-        <dt><b>Crafters Area</b>: <em>5th Floor Baltimore B</em></dt>
-        <dt><b>Dealers’ Rooms</b>: <em>5th Floor Baltimore B &amp; Maryland E/F</em></dt>
-        <dt><b>Hal Haag Memorial Game Room</b>: <em>5th Floor, Federal Hill</em></dt>
-        <dt><b>Hotel</b>:
-        <dd>Renaissance Baltimore Harborplace Hotel
-          <br>202 East Pratt Street
-          <br>Baltimore, Maryland 21202
-          <br>410-547-1200
-        </dd>
-        <dt><b>Info Desk</b>: <em>5th Floor Atrium</em></dt>
-        <dt><b>Masquerade</b>: </dt>
-        <dt><b>Medical</b>: <em>6th Floor, Room 6017</em></dt>
-        <dt><b>Open Filk</b>: <em>6th Floor, Kent</em></dt>
-        <dd>
-          <table>
-            <tbody>
-              <tr>
-                <td>Fri</td>
-                <td>
-                  10&nbsp;PM—
-                </td>
-              </tr>
-              <tr>
-                <td>Sat</td>
-                <td>
-                  10&nbsp;PM—
-                </td>
-              </tr>
-              <tr>
-                <td>Sun</td>
-                <td>
-                  10&nbsp;PM—
-                </td>
-              </tr>
-              <tr>
-                <td>Mon</td>
-                <td>
-                  2:30&nbsp;PM—
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </dd>
-        <dt><b>Registration</b>: <em>5th Floor Atrium</em></dt>
-        <dt><b>Sales Table</b>: <em>5th Floor, outside Federal Hill</em></dt>
-        <dt><b>Social Media:</b></dt>
-        <dd>
-          <table>
-            <tbody>
-              <tr>
-                <td><a href="https://www.youtube.com/baltimoreSciFi">YouTube</a></td>
-              </tr>
-              <tr>
-                <td><a href="https://www.facebook.com/BalticonConvention">FaceBook page</a></td>
-              </tr>
-              <tr>
-                <td><a href="https://www.facebook.com/groups/balticon">FaceBook group</a></td>
-              </tr>
-              <tr>
-                <td><a href="https://twitter.com/Balticon">Twitter</a></td>
-              </tr>
-              <tr>
-                <td><a href="https://www.instagram.com/balticon.convention/">Instagram</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </dd>
-        <dt><b>Volunteer Desk</b>: <em>5th Floor Atrium</em></dt>
-
-      </dl><!-- class="quick-ref" -->
-
-      <h3>Invited Participants Only:</h3>
-      <dl class="quick-ref">
-        <dt><b>Program Ops</b>:
-          <br>Please check in when you arrive.
-        </dt>
-        <dt><b>Green Room</b>: <em class="tbd">12th Floor, Presidential Suite</em></dt>
-      </dl><!-- class="quick-ref" -->
-
-    </div><!-- /info_view -->
-
-    <div id="prog_ls" class="ls"><br>
-      <div class="ls_loading">Loading program data&hellip;</div>
+      <div id="refresh"><i class="refresh_icon"></i><span data-txt>Refresh data</span></div>
     </div>
 
-  </div><!-- /main -->
+    <div id="main">
 
-  <script src="https://zambia.balticon.org/konOpasData.jsonp"></script>
-  <script src="konopas.min.js"></script>
-  <script>
-    var konopas = new KonOpas({
-      'id': 'Balticon56',
-      'default_duration': 0,
-      'tag_categories': ['type'],
-      'time_show_am_pm': true,
-      'show_all_days_by_default': true,
-      'use_server': false
-    });
-    konopas.set_program(program, {
-      'day': {},
-      'area': {},
-      'tag': {
-        'categories': ['track', 'type'],
-        'labels': {
-          'track': 'Track',
-          'type': 'Type'
-        },
-        exclude: ['^[Tt]rack*']
-      }
-    });
-    konopas.set_people(people);
-    konopas.set_view();
-  </script>
-</body>
+      <div id="star_view" class="view">
+	<b>Note:</b> Selected items are stored locally, and will not automatically sync across devices.
+	<div id="star_data"></div>
+      </div>
+
+      <div id="prog_view" class="view">
+	<div id="prog_filters" class="filters">
+	  <div id="prog_lists"></div>
+	  <form name="search" id="search">
+	    <input type="text" id="q" required data-txt="Search" data-txt-attr="placeholder">
+	    <div id="q_ctrl">
+	      <input type="submit" id="q_submit" data-txt="Go" data-txt-attr="value">
+	    </div>
+	    <div id="q_hint" class="hint"></div>
+	    <div id="filter_sum_wrap">
+	      <input type="reset" id="q_clear" data-txt="Clear all" data-txt-attr="value">
+	      <div id="filter_sum"></div>
+	    </div>
+	  </form>
+	</div>
+	<div id="day-narrow" class="sub-narrow"></div>
+
+	<div id="last-updated">Program and participant data are subject to change. <br>
+	  Last Update: <span></span>.</div>
+	<ul>
+	  <li><b>All times are listed in EDT.</b> Virtual attendees should adjust for local time zone.</li>
+	  <li>Click item titles to view description.</li>
+	  <li>Select the box next to items of interest to save to "My Con".<br>
+	    <b>Note:</b> Selected items are stored locally, and will not automatically sync across devices.</li>
+	</ul>
+      </div>
+
+      <div id="part_view" class="view">
+	<h2>People</h2>
+	<p>Select program participant name for bio and schedule.</p>
+	<div id="part-narrow" class="sub-narrow"></div>
+	<ul id="part_names"></ul>
+	<div id="part_info"></div>
+      </div>
+
+      <div id="info_view" class="view">
+
+	<h2>Welcome to Balticon 56!</h2>
+	<p>The Baltimore Science Fiction Society is holding Balticon 56
+	  as a hybrid in-person/virtual convention Memorial Day weekend,
+	  May 27&nbsp;—&nbsp;30, 2022.</p>
+	<p>Program and participant data are subject to change. All times are listed in EDT.</p>
+
+	<div id="install-instructions">
+	  <p>This guide will work in your browser even when you don't have an internet connection.</p>
+	  <h4 class="collapse">Home screen app install instructions</h4>
+	  <dl class="compact-dl">
+	    <dt>Safari on iPhone/iPad
+	    <dd>Tap on <i class="ios_share_icon"></i> (share), then tap <b>Add to Home Screen</b>.
+	    <dt>Chrome on Android
+	    <dd>Tap on <i class="android_menu_icon"></i> (menu), then tap <b>Add to Home Screen</b>.
+	    <dt>Firefox on Android
+	    <dd>Tap on <i class="android_menu_icon"></i> (menu), then tap <b>Bookmark</b> and select
+	      <b>Options</b>, and <b>Add to Home Screen</b>.
+	    <dt>IE on Windows Phone
+	    <dd>Tap on <i class="ie_menu_icon"></i> (menu), then tap <b>Pin to Start</b>
+	  </dl>
+	</div><!-- id="install-instructions" -->
+	<script>
+	  if (navigator.standalone) document.getElementById('install-instructions').style.display = 'none';
+	</script>
+
+	<h2>Links</h2>
+	<ul>
+	  <li><a href="https://balticon.org/">Balticon 56 website</a></li>
+	  <li><a href="https://bsfs.org/code-conduct.htm"><b>Code of Conduct</b></a>
+	    and <a href="https://www.balticon.org/wp56/covid-policy/"><b>COVID Policy</b></a></li>
+
+	  <li><a href="http://bsfs.org/b56hist.htm">Rocket Mail Daily Updates</a> (PDF - coming soon)
+	    <!--
+		<ul>
+		  <li><a href="http://bsfs.org/images/b56-rocketmail-friday.pdf">Friday</a></li>
+		  <li><a href="http://bsfs.org/images/b56-rocketmail-saturday.pdf">Saturday</a></li>
+		  <li><a href="http://bsfs.org/images/b56-rocketmail-sunday.pdf">Sunday</a></li>
+		  <li><a href="http://bsfs.org/images/b56-rocketmail-monday.pdf">Monday</a></li>
+		</ul>
+		-->
+	  </li>
+	  <li><a href="http://bsfs.org/">Baltimore Science Fiction Society</a></li>
+
+	  <li>Social Media:
+	    <ul>
+	      <li><a href="https://www.youtube.com/baltimoreSciFi">YouTube</a></li>
+	      <li><a href="https://www.facebook.com/BalticonConvention">FaceBook page</a></li>
+	      <li><a href="https://www.facebook.com/groups/balticon">FaceBook group</a></li>
+	      <li><a href="https://twitter.com/Balticon">Twitter</a></li>
+	      <li><a href="https://www.instagram.com/balticon.convention/">Instagram</a></li>
+	    </ul>
+	  </li>
+	</ul>
+
+	<style>
+	  #map {width: 100% !important;}
+	  #map td { text-align: left !important; padding: 6px 32px; }
+	  #map a, #map span { font-family: 'Oswald'; font-weight: 400; font-size: 1.2em; cursor: pointer; }
+	  #map a:hover, #map span:hover { text-decoration: underline; }
+	  #map tr:hover, .quick-ref tr:hover { background: inherit !important; }
+	  .quick-ref dt { margin: 6px 0 3px; }
+	  .quick-ref table { width: auto !important; border-spacing: 0; margin-bottom: 6px; }
+	  .quick-ref td { text-align: left !important; }
+	  #info_view .quick-ref td.c { text-align: center !important; }
+	  .quick-ref td:nth-child(2) { text-align: right !important; padding: 0 0 0 5px; }
+	  .quick-ref td:nth-child(3) { padding-left: 0; }
+	</style>
+
+	<h2>Maps</h2>
+	<p>On mobile: tap to open/close; pinch to zoom; drag to scroll.</p>
+	<dl id="map">
+	  <dt><a class="popup-link" href="data/B56_5th.png">Fifth Floor</a></dt>
+	  <dd>Dealer Room, Main Tent, Art Show, Con Ops, Fan Tables, Gaming,
+	    Restaurant, Autographs, Science, Artist Alley, Con Suite, Crafters Area</dd>
+	  <dt><a class="popup-link" href="data/B56_6th.png">Sixth Floor</a></dt>
+	  <dd>Quiet Lounge, Medical, Video, Music, Readings</dd>
+	  <dt><a class="popup-link" href="data/B56_7th.png">Guest Room Floors</a></dt>
+	  <dd>Children's, Makers, Costuming, Workshops</dd>
+	</dl>
+	<p><em>Turn right after exiting elevator lobby to find program rooms above the 5th floor.</em></p>
+
+
+	<h2>Quick Reference</h2>
+	<dl class="quick-ref">
+
+	  <dt><b>Accessibility</b>: <em>5th Floor Atrium</em></dt>
+	  <dt><b>Art Show</b>: <em>5th Floor Maryland A/B</em></dt>
+	  <dt><b>Artist Alley</b>: <em>5th Floor Atrium</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>2 PM—</td><td>7 PM</td></tr>
+	      <tr><td>Sat &amp; Sun</td><td>10 AM—</td><td>7 PM</td></tr>
+	      <tr><td>Mon</td><td>10 AM—</td><td>2 PM</td></tr>
+	    </table>
+	    Table hours may vary for participation in panels, workshops, or other events.</dd>
+	  <dt><b>Con Ops</b>: <em>5th Floor, Fells Point (past elevators)</em></dt>
+	  <dd>Friday 2 PM through Monday 5 PM</dd>
+	  <dt><b>Con Suite</b>: <em>5th Floor Baltimore A</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>4 PM—</td><td>2 AM</td></tr>
+	      <tr><td>Sat &amp; Sun</td><td>8 AM—</td><td>2 AM</td></tr>
+	      <tr><td>Mon</td><td>8 AM—</td><td>2 PM</td></tr>
+	    </table>
+	    Food service ends by Monday 1 PM.
+	  </dd>
+	  <dt><b>Crafters Area</b>: <em>back of 5th Floor Baltimore B</em></dt>
+	  <dd>Same hours as Dealer Room.</dd>
+	  <dt><b>Dealer Room</b>: <em>5th Floor Baltimore B &amp; Maryland E/F</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>2 PM—</td><td>7 PM</td></tr>
+	      <tr><td>Sat &amp; Sun</td><td>10 AM—</td><td>7 PM</td></tr>
+	      <tr><td>Mon</td><td>10 AM—</td><td>2 PM</td></tr>
+	    </table>
+	  </dd>
+	  <dt><b>Hal Haag Memorial Game Room</b>: <em>5th Floor, Federal Hill</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>6 PM—</td><td>2 AM</td></tr>
+	      <tr><td>Sat &amp; Sun</td><td>10 AM—</td><td>2 AM</td></tr>
+	      <tr><td>Mon</td><td>10 AM—</td><td>4 PM</td></tr>
+	    </table>
+	  </dd>
+	  <dt><b>Hall Costumes</b>:</dt>
+	  <dd>Photo backdrops in <em>5th Floor Atrium</em>. <br>
+	    Con com members will be on the lookout for great costumes!
+	  </dd>
+	  <dt><b>Hotel</b>:
+	    <dd>Renaissance Baltimore Harborplace Hotel
+	      <br>202 East Pratt Street
+	      <br>Baltimore, Maryland 21202
+	      <br>410-547-1200
+	    </dd>
+	  <dt><b>Info Desk</b>: <em>5th Floor Atrium</em></dt>
+	  <dd>Same hours as Registration; after hours see Con Ops.</dd>
+	  <dt><b>Masquerade</b>:</dt>
+	  <dt><b>Medical</b>: <em>6th Floor, Room 6017</em></dt>
+	  <dt><b>Open Filk</b>: <em>6th Floor, Kent</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>10 PM—</td><td>2 AM</td></tr>
+	      <tr><td>Sat &amp; Sun</td><td>10 PM—</td><td>2 AM</td></tr>
+	      <tr><td>Mon</td><td>2:30 PM—</td><td>7 PM</td></tr>
+	    </table>
+	  </dd>
+	  <dt><b>Registration</b>: <em>5th Floor Atrium</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>1 PM—</td><td>10 PM</td></tr>
+	      <tr><td>Sat</td><td>8:45 AM—</td><td>7 PM</td></tr>
+	      <tr><td>Sun</td><td>8:45 AM—</td><td>5 PM</td></tr>
+	      <tr><td>Mon</td><td>10 AM—</td><td>1:30 PM</td></tr>
+	    </table>
+	  </dd>
+	  <dt><b>Sales Table</b>: <em>5th Floor</em></dt>
+	  <dd>
+	    <table>
+	      <tr><td>Fri</td><td>2 PM—</td><td>6:30 PM</td></tr>
+	      <tr><td>Sat &amp; Sun</td><td>10:30 AM—</td><td>7:30 PM</td></tr>
+	      <tr><td>Mon</td><td>10:30 AM—</td><td>3 PM</td></tr>
+	    </table>
+	  </dd>
+	  <dt><b>Volunteer Desk</b>: <em>5th Floor Atrium (with Sales)</em></dt>
+	  <dd>Same as Sales.</dd>
+
+	</dl><!-- class="quick-ref" -->
+
+	<h3>Invited Participants Only:</h3>
+	<dl class="quick-ref">
+	  <dt><b>Program Ops</b>: <em>5th Floor, Fells Point (past elevators)</em>
+	    <br>Please check in when you arrive.</dt>
+	  <dt><b>Green Room</b>: <em>12th Floor, Presidential Suite</em></dt>
+	</dl><!-- class="quick-ref" -->
+
+      </div><!-- id="info_view" -->
+
+      <div id="prog_ls" class="ls"><br><div class="ls_loading">Loading program data…</div></div>
+
+    </div><!-- /main -->
+
+    <script src="https://zambia.balticon.org/konOpasData.jsonp"></script>
+    <script src="konopas.min.js"></script>
+    <script>
+      var konopas = new KonOpas({
+	  'id': 'Balticon56',
+	  'default_duration': 0,
+	  'tag_categories': ['type'],
+	  'time_show_am_pm': true,
+	  'show_all_days_by_default': true,
+	  'use_server': false
+      });
+      konopas.set_program(program, {
+	  'day': {},
+	  'area': {},
+	  'tag': {
+	      'categories': ['track', 'type'],
+	      'labels': {
+		  'track': 'Track',
+		  'type': 'Type'
+	      },
+	      exclude: ['^[Tt]rack*']
+	  }
+      });
+      konopas.set_people(people);
+      konopas.set_view();
+    </script>
+  </body>
 
 </html>
