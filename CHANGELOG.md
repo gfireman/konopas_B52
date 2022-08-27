@@ -1,3 +1,7 @@
+# 0.9.6 (2022-08-27)
+  * Interface
+    - Added support for pronoun field from people.js dataset, to be displayed parenthetically as title of participant if present.
+
 # 0.9.5 (2022-01-29)
   * Interface:
     - Fixed broken tab navigation and page loading on Android 10+
