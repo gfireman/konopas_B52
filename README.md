@@ -140,8 +140,16 @@ Once set, the same locale will be used until reset as above or by `make clean`.
 
 To make a release zip file on Windows:
 ```
-"c:\Program Files\7-Zip\7z.exe" a konopas-0.9.1.zip CHANGELOG.md LICENSE README.md dist\* util\* util2\* -x!*\node_modules
+"c:\Program Files\7-Zip\7z.exe" a konopas-0.9.6.zip CHANGELOG.md LICENSE README.md dist\* util\* util2\* -x!*\node_modules
 ```
+
+To publish a release:
+```
+git tag -a v0.9.6 -m 'Release 0.9.6'
+git push origin v0.9.6
+```
+Navigate to https://github.com/dpmott/konopas/releases and create a new release named and formatted like the ones before it, and upload the zip file as a binary.
+
 
 ## Discussion
 
