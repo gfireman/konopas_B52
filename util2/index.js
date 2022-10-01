@@ -1,22 +1,22 @@
-'use strict;'
+'use strict';
 
 const csv = require('csv');
-const Wreck = require('wreck');
+const Wreck = require('@hapi/wreck');
 const Fs = require('fs');
 const Promise = require('bluebird');
 
-const key = '1Vff_nSuxgiuctd2sCZ19CeZMp8OZgQRUkFweYNktJLs';
+const key = '17qsLpLZxEckdEajpKPkQvN6b8TCh6VD85FHYsCXDXbk';
 const config = [
   {
     key,
     gid: 0,
-    path: '../data/finncon2013',
+    path: '../data',
     name: 'program',
   },
   {
     key,
-    gid: 1,
-    path: '../data/finncon2013',
+    gid: 958660582,
+    path: '../data',
     name: 'people',
   }
 ];
@@ -35,7 +35,7 @@ function getUri(key, gid) {
 };
 
 function checkForValidPayload(payload) {
-  const regex = new RegExp('<html.*<head.*</head>.*<body.*</body>.*</html>', 's');
+  const regex = new RegExp('<html.*<head.*</head>.*<body.*</body>.*</html>', 'si');
   if (regex.test(payload.toString('utf8'))) {
     throw('ERROR: CSV content appears to be an HTML page.\n' + 
           'Please set document permissions to be publicly accessible via link without any username or password.');
@@ -48,7 +48,7 @@ function processPage(key, gid, processFn) {
     columns: (ary) => ary.map((value) => value.match(/^\d+$/) ? false : value),
   };
 
-  return Promise.resolve(Wreck.get(getUri(key, gid)))
+  return Promise.resolve(Wreck.get(getUri(key, gid), { redirects: 1 }))
     .tap((response) => console.log('Response status:', response.res.statusCode))
     .then((response) => response.payload)
     .tap((payload) => checkForValidPayload(payload))
@@ -77,7 +77,7 @@ function processCSV(data) {
             meta[column][index] = meta[column][index] || `${item.length}`; // Note: '0' is truthy
             init(item, +meta[column][index], {})[field] = value;
           } else {
-            item[index] = value;
+            isIndexed && column !== 'name' ? item.push(value) : item[index] = value;
           }
         }
         delete row[name];

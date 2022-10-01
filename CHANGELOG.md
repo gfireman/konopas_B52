@@ -1,3 +1,7 @@
+# 0.9.7 (2022-10-01)
+  * Interface
+    - Adding support for HTML markup in titles
+
 # 0.9.6 (2022-08-27)
   * Interface
     - Added support for pronoun field from people.js dataset, to be displayed parenthetically as title of participant if present.
