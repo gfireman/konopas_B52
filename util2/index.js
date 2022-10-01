@@ -5,18 +5,18 @@ const Wreck = require('@hapi/wreck');
 const Fs = require('fs');
 const Promise = require('bluebird');
 
-const key = '17qsLpLZxEckdEajpKPkQvN6b8TCh6VD85FHYsCXDXbk';
+const key = '1Vff_nSuxgiuctd2sCZ19CeZMp8OZgQRUkFweYNktJLs';
 const config = [
   {
     key,
     gid: 0,
-    path: '../data',
+    path: '../data/finncon2013',
     name: 'program',
   },
   {
     key,
-    gid: 958660582,
-    path: '../data',
+    gid: 1,
+    path: '../data/finncon2013',
     name: 'people',
   }
 ];
