@@ -46,20 +46,30 @@ function gdrive2json($key, $gid = '0', $version = 'ccc') {
 	$rc = url_fetch($url, $csv_str);
 	if ($rc) exit("URL fetch error: $rc");
 
+	if (preg_match('|<html.*<head.*</head>.*<body.*</body>.*</html>|s', $csv_str)) {
+		exit("ERROR: CSV content appears to be an HTML page.\nPlease set document permissions to be publicly accessible via link without any username or password.");
+	}
+
 	$csv = new parseCSV("$csv_str\n");
 	$a = $csv->data;
 
 	foreach ($a as &$i) {
+		$meta = array();
 		foreach ($i as $k => $v) {
 			if (strpos($k, '.')) {
 				if ($v && preg_match('/^([^.]+)\.([^.]+)(\.([^.]+))?$/', $k, $m)) {
-					if (!isset($i[$m[1]])) $i[$m[1]] = array();
+					isset($i[$m[1]]) or $i[$m[1]] = array();
 					$x =& $i[$m[1]];
+					// Calculate the next index, to keep arrays sequential.  This allows the spreadsheet to be more user-friendly by allowing gaps.
+					isset($meta[$m[1]]) or $meta[$m[1]] = array();
+					isset($meta[$m[1]][$m[2]]) or $meta[$m[1]][$m[2]] = count($x);
+					$index = $meta[$m[1]][$m[2]];
+
 					if ((count($m) >= 5) && $m[4]) {
-						if (!isset($x[$m[2]])) $x[$m[2]] = array();
-						$x[$m[2]][$m[4]] = $v;
+						isset($x[$index]) or $x[$index] = array();
+						$x[$index][$m[4]] = $v;
 					} else {
-						$x[$m[2]] = $v;
+						$x[$index] = $v;
 					}
 				}
 				unset($i[$k]);

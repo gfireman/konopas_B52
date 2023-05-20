@@ -2,7 +2,7 @@ KonOpas.Item = function() {
 	_el('prog_ls').onclick = KonOpas.Item.list_click;
 	if (_el('scroll_link')) {
 		_el('scroll_link').onclick = function() { _el('top').scrollIntoView(); return false; };
-		if (window.navigator && navigator.userAgent.match(/Android [12]\./)) {
+		if (window.navigator && navigator.userAgent.match(/Android [12][^\d]/)) {
 			_el('time').style.display = 'none';
 			_el('scroll').style.display = 'none';
 		} else {
@@ -70,16 +70,18 @@ KonOpas.Item.new = function(it) {
 		}
 		return s;
 	}
-	var frame = _new_elem('div', 'item_frame'),
-	    star  = frame.appendChild(_new_elem('div', 'item_star')),
-	    item  = frame.appendChild(_new_elem('div', 'item')),
-	    title = item.appendChild(_new_elem('div', 'title')),
-	    loc   = item.appendChild(_new_elem('div', 'loc'));
+	var frame  = _new_elem('div', 'item_frame'),
+	    star   = frame.appendChild(_new_elem('div', 'item_star')),
+	    item   = frame.appendChild(_new_elem('div', 'item')),
+	    status = item.appendChild(_new_elem('div', 'title status')),
+	    title  = item.appendChild(_new_elem('div', 'title')),
+	    loc    = item.appendChild(_new_elem('div', 'loc'));
 
 	KonOpas.Item.new = function(it) {
 		star.id = 's' + it.id;
 		item.id = 'p' + it.id;
-		title.textContent = it.title;
+		title.innerHTML = it.title; // allow HTML markup in titles
+		status.textContent = it.status || '';
 		loc.textContent = _loc_str(it);
 		return frame.cloneNode(true);
 	};
@@ -252,7 +254,7 @@ KonOpas.Item.show_list = function(ls, opt) {
 		if (d_n) d_set(d_n, 'short');
 		konopas.program.show_filter_sum(ls, opt);
 	}
-	//if (konopas.item.hasOwnProperty(scroll))
+
 	konopas.item.scroll.i = 0;
 	window.onscroll && window.onscroll();
 }

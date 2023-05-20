@@ -92,6 +92,7 @@ KonOpas.Part.prototype.show_one = function(i) {
 	    p_name = KonOpas.clean_name(p, false),
 	    links = '',
 	    img = '',
+			pronouns = p.pronouns ? ' (' + p.pronouns + ')' : '',
 	    pl = KonOpas.clean_links(p);
 	if (pl) {
 		links += '<dl class="linklist">';
@@ -106,7 +107,7 @@ KonOpas.Part.prototype.show_one = function(i) {
 	}
 	_el("part_names").innerHTML = '';
 	_el("part_info").innerHTML =
-		  '<h2 id="part_title">' + p_name + '</h2>'
+		  '<h2 id="part_title">' + p_name + pronouns + '</h2>'
 		+ ((p.bio || img) ? ('<p>' + img + p.bio) : '')
 		+ links;
 	KonOpas.Item.show_list(konopas.program.list.filter(function(it) { return p.prog.indexOf(it.id) >= 0; }));

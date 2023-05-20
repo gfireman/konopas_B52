@@ -1,3 +1,40 @@
+# 0.9.7 (2022-10-01)
+  * Interface
+    - Adding support for HTML markup in titles
+
+# 0.9.6 (2022-08-27)
+  * Interface
+    - Added support for pronoun field from people.js dataset, to be displayed parenthetically as title of participant if present.
+
+# 0.9.5 (2022-01-29)
+  * Interface:
+    - Fixed broken tab navigation and page loading on Android 10+
+
+# 0.9.4 (2021-10-03)
+  * Interface:
+    - Replaced dependency on deprecated Browser AppCache with interval timer to check for data updates
+
+# 0.9.3 (2019-11-16)
+
+  * New features:
+    - Added ability to query filter on YYYY-MM-DD
+
+# 0.9.2 (2018-10-30)
+
+  * New features:
+    - Added support for adding an unlimited number of user-defined tabs using the 'more' hash prefix.
+
+# 0.9.1 (2018-10-29)
+
+  * Interface:
+    - Added support for a 'status' field in the program.json metadata, which will display an event status in the UI.  Use this to draw attention to events that have been moved/rescheduled/canceled.
+  * Code:
+    - Changed visible text 'programme' to 'program'
+    - Non-functional code changes
+  * Util:
+    - Enhanced PHP scripts to be more tolerant of gaps in spreadsheet data.
+    - Added a util2 folder that re-implements the PHP scripts in ES6 javascript (Node.js)
+
 # 0.9.0 (2018-07-12)
 
   * Interface:

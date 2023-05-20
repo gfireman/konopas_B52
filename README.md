@@ -34,7 +34,7 @@ please get in touch with us at info@konopas.org.
 For links to example instances of KonOpas, take a look at the links from our
 [website][KonOpas].
 
-[KonOpas]: https://konopas.github.io/
+[KonOpas]: http://konopas.org/
 
 
 ## Getting Started
@@ -48,7 +48,7 @@ it to the [KonOpas format][KO-fmt].
 
 [Conference Planner]: http://sourceforge.net/projects/conferenceplan/
 [Grenadine]: http://events.grenadine.co/
-[Zambia]: https://github.com/olszowka/Zambia
+[Zambia]: http://sourceforge.net/projects/zambia/
 [PHP script]: https://github.com/eemeli/konopas/tree/master/util/gdrive2js
 [KO-fmt]: http://konopas.org/data-fmt
 
@@ -83,17 +83,12 @@ need to edit the `skin/*.less` files and recompile them into CSS. For
 internationalization and other needs, we have a few other [utilities][KO-util]
 available.
 
-The HTML5 [cache manifest] is by default not enabled, as it makes testing and
-development a bit of a hassle. To enable, you should update the contents of
-`konopas.appcache` to match your deployment and add a reference to it in the
-`<html>` tag. Do check that your server is properly serving it with the
-`text/cache-manifest` MIME type, and that the manifest doesn't include itself
-(debugging a bad manifest can be tricky).
-
-[KO-cfg]: https://konopas.github.io/config
-[KO-util]: https://konopas.github.io/util/
-[cache manifest]: http://en.wikipedia.org/wiki/Cache_manifest_in_HTML5
-
+Support for the HTML5 [cache manifest] is deprecated, and use of it has been removed from KonOpas.
+A Javascript interval timer is used to fetch the last-updated attribute of a single file (still
+named `konopas.appcache`), and that timestamp is used to determine if the app should be reloaded.
+This functionality is enabled by uncommenting the html tag attribute `data-last-updated`.
+To test changes to the refresh logic locally, consider installing a Node.js webserver via
+ `npm install http-server -g` and then simply running `http-server` in the same directory as `index.html`.
 
 ## Compilation & Dependencies
 
@@ -140,6 +135,20 @@ Once set, the same locale will be used until reset as above or by `make clean`.
 
 [npm]: https://www.npmjs.com/
 [Watchman]: https://github.com/facebook/watchman
+
+### release
+
+To make a release zip file on Windows:
+```
+"c:\Program Files\7-Zip\7z.exe" a konopas-0.9.6.zip CHANGELOG.md LICENSE README.md dist\* util\* util2\* -x!*\node_modules
+```
+
+To publish a release:
+```
+git tag -a v0.9.6 -m 'Release 0.9.6'
+git push origin v0.9.6
+```
+Navigate to https://github.com/dpmott/konopas/releases and create a new release named and formatted like the ones before it, and upload the zip file as a binary.
 
 
 ## Discussion

@@ -1,6 +1,6 @@
 BIN = ./node_modules/.bin
 
-DIST = dist/index.html dist/konopas.min.js dist/skin/konopas.css dist/konopas.appcache
+DIST = dist/index.html dist/konopas.appcache dist/konopas.min.js dist/skin/konopas.css
 SKIN = $(addprefix dist/, $(wildcard skin/*.png skin/*.svg skin/*.ttf))
 STATIC = $(SKIN) dist/favicon.ico
 
@@ -44,13 +44,13 @@ dist/konopas.min.js: dist/konopas.js | node_modules
 dist/dev.html: index.html | dist
 	cp -pf $< $@
 
+dist/konopas.appcache: konopas.appcache | dist
+	cp -pf $< $@
+
 dist/index.html: index.html | dist
 	sed 's/"konopas.js"/"konopas.min.js"/' $< > $@
 
 dist/favicon.ico: skin/favicon.ico | dist
-	cp -pf $< $@
-
-dist/konopas.appcache: konopas.appcache | dist
 	cp -pf $< $@
 
 dist/skin/konopas.css: skin/*.less | dist/skin node_modules
@@ -58,6 +58,7 @@ dist/skin/konopas.css: skin/*.less | dist/skin node_modules
 
 dist/skin/%: skin/% | dist/skin
 	cp -pf $< $@
+
 
 precache: $(addsuffix .gz, $(DIST) $(wildcard dist/skin/*.ttf))
 %.gz: % ; gzip -c $^ > $@
