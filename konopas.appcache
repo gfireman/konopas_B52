@@ -5,6 +5,7 @@ CACHE:
 https://zambia.balticon.org/konOpasData.jsonp
 skin/*
 konopas.min.js
+favicon.ico
 
 NETWORK:
 *
