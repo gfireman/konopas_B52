@@ -2,7 +2,7 @@ CACHE MANIFEST
 # [insert mod-timestamp here]
 
 CACHE:
-https://zambia.balticon.org/konOpasData.jsonp
+https://zambia.balticon.org/konOpasSecureData.jsonp
 skin/*
 konopas.min.js
 favicon.ico
